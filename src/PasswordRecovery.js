@@ -18,7 +18,7 @@ const PasswordRecovery = () => {
                     <input type="email" name="email" required />
                     <button type="submit" className="reset-button">Reset Password</button>
                 </form>
-                <a href="<StudentLogin/>" className="back-to-login">Return to login page</a>
+                <a href="" className="back-to-login">Return to login page</a>
             </div>
             <footer className="footer">
                 <p>UST Blessed Pier Giorgio Frassati Building</p>
