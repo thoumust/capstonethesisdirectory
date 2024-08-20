@@ -1,0 +1,77 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("frassbg.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.register-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.register-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-form .register-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #7a1914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-form .register-button:hover {
+  background-color: #631511;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.return-login-link {
+  margin-top: 1rem;
+  display: block;
+  font-size: 1rem;
+  color: #007bff;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.return-login-link:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
