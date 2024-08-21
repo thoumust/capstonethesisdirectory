@@ -39,17 +39,7 @@ const StudentHome = () => {
                   alt="Manage"
                   className="icon-image sb-icons"
                 />
-                <span className="label">Manage papers</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon">
-                <img
-                  src="./approval.png"
-                  alt="Approval"
-                  className="icon-image  sb-icons"
-                />
-                <span className="label">Approval</span>
+                <span className="label">IP registered</span>
               </a>
             </li>
             <li>
@@ -68,16 +58,6 @@ const StudentHome = () => {
               <a href="#" className="icon">
                 <img src="./cs.png" alt="CS" className="icon-image sb-icons" />
                 <span className="label">CS</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon">
-                <img
-                  src="./accs.png"
-                  alt="Account Management"
-                  className="icon-image sb-icons"
-                />
-                <span className="label">Manage Accounts</span>
               </a>
             </li>
           </ul>
