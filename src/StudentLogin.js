@@ -61,9 +61,8 @@ const StudentLogin = () => {
         <img src="/logo.png" alt="College Logo" className="logo" />
         <h2>College of Information and Computing Sciences</h2>
         <h3>Capstone Projects and Thesis Papers Directory</h3>
+        <div style={{justifyContent: "center", textAlign:"center"}}><h1>Student Login</h1></div>
         <form className="login-form" onSubmit={handleLogin}>
-          <h1>Student Login</h1>
-
           <label>Email Address:</label>
           <input
             type="email"
@@ -101,9 +100,9 @@ const StudentLogin = () => {
             Register Here!
           </a>
         </div>
-        <div className="footer">
+        <div className="studentfooter">
           <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> |{" "}
-          <a href="#">UST website</a>
+          <a href="#">UST website</a> |<a href="/admin-login"> Admin Log in</a> |<a href="/faculty-login"> Faculty Log in</a>
         </div>
       </div>
     </div>

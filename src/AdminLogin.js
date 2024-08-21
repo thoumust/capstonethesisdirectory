@@ -8,8 +8,8 @@ const AdminLogin = () => {
         <img src="/logo.png" alt="College Logo" className="logo" />
         <h2>College of Information and Computing Sciences</h2>
         <h3>Capstone Projects and Thesis Papers Directory</h3>
+        <div style={{justifyContent: "center", textAlign:"center"}}><h1>Admin Login</h1></div>
         <form className="login-form">
-          <h1> Admin log in</h1>
 
           <label>Email Address:</label>
           <input type="email" name="email" required />
@@ -22,9 +22,9 @@ const AdminLogin = () => {
             Log in
           </button>
         </form>
-        <div className="footer">
+        <div className="adminfooter">
           <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> |{" "}
-          <a href="#">UST website</a>
+          <a href="#">UST website</a>  |<a href="/"> Student Log in </a> |<a href="/faculty-login"> Faculty Log in </a>
         </div>
       </div>
     </div>

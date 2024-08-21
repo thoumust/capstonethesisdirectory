@@ -66,7 +66,7 @@ const PasswordRecovery = () => {
         <p>España Blvd, Sampaloc, Manila, 1000 Metro Manila</p>
         <div className="footer-links">
           <a href="#">Terms of Use</a> |<a href="#">Privacy Policy</a> |
-          <a href="#">UST website</a>
+          <a href="#">UST website</a> |<a href="/admin-login">Admin Log in</a> |<a href="/faculty-login">Faculty Log in</a>
         </div>
       </footer>
     </div>

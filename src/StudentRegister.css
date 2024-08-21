@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .register-container {
   display: flex;
   justify-content: center;
@@ -8,11 +13,12 @@
 }
 
 .register-content {
-  background: white;
+  background-color: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
+  text-align: center;
 }
 
 h1 {
@@ -21,8 +27,29 @@ h1 {
   text-align: center;
 }
 
+.logo {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+h3 {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  color: gray;
+}
+
+
 .register-form .form-group {
   margin-bottom: 1rem;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .register-form label {
@@ -65,13 +92,22 @@ h1 {
   margin-top: 1rem;
   display: block;
   font-size: 1rem;
-  color: #007bff;
+  color: #a0a0a0;
   text-align: center;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .return-login-link:hover {
   color: #0056b3;
+  text-decoration: underline;
+}
+
+.studentfooter a {
+  color: #a0a0a0;
   text-decoration: none;
+}
+
+.studentfooter a:hover {
+  text-decoration: underline;
 }

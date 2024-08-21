@@ -62,6 +62,9 @@ const StudentRegister = () => {
   return (
     <div className="register-container">
       <div className="register-content">
+      <img src="/logo.png" alt="College Logo" className="logo" />
+        <h2>College of Information and Computing Sciences</h2>
+        <h3>Capstone Projects and Thesis Papers Directory</h3>
         <h1>Student Registration</h1>
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -143,6 +146,10 @@ const StudentRegister = () => {
         <a href="/" onClick={handleReturnToLogin} className="return-login-link">
           Return to Login
         </a>
+        <div className="studentfooter">
+          <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> |{" "}
+          <a href="#">UST website</a> |<a href="/admin-login"> Admin Log in</a> |<a href="/faculty-login"> Faculty Log in</a>
+        </div>
       </div>
     </div>
   );
