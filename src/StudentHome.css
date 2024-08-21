@@ -56,6 +56,7 @@ body {
   flex: 1;
 }
 
+/* Sidebar structure */
 .sidebar {
   width: 60px;
   background-color: #a4231c;
@@ -64,10 +65,6 @@ body {
   justify-content: space-between;
   transition: width 0.3s;
   overflow: hidden;
-}
-
-.sidebar.open {
-  width: 200px;
 }
 
 .sidebar ul {
@@ -90,31 +87,36 @@ body {
   height: 60px;
 }
 
-.sidebar ul li a .icon {
+.sidebar ul li .icon {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin-right: 15px;
-}
-
-.sidebar ul li a:hover {
-  background-color: #811716;
+  justify-content: space-between;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
 }
 
 .sidebar ul li a .label {
-  display: none;
+  display: none; /* Hide the label by default */
   white-space: nowrap;
 }
 
-.sidebar.open ul li a .label {
-  display: inline;
+.sidebar ul li a .icon-image {
+  margin-right: 0; /* Remove default margin for icon images */
 }
 
+.sidebar.open ul li a .label,
+.sidebar:hover ul li a .label {
+  display: inline-block; /* Show the label when sidebar is hovered or expanded */
+  margin-left: 15px; /* Adjust spacing between icon and label */
+}
+
+/* Expand sidebar width when hovered */
 .sidebar:hover {
   width: 200px;
 }
 
+/* Profile section */
 .profile-section {
   margin-bottom: 10px;
 }
@@ -131,10 +133,42 @@ body {
   background-color: #811716;
 }
 
-.profile-button .icon {
-  font-size: 24px;
-  margin-right: 15px;
+.profile-button .label {
+  display: none;
 }
+
+.sidebar.open .profile-button .label,
+.sidebar:hover .profile-button .label {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+/* Optional: Adjust dropdown arrow */
+.dropdown-arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: white;
+}
+
+/* Dropdown list styling */
+.dropdown-list {
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.dropdown-list .dropdown-item {
+  display: block;
+  padding: 5px 0;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-list .dropdown-item:hover {
+  color: #ffd700;
+}
+
 
 .main-content {
   flex: 1;

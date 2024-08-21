@@ -1,77 +1,26 @@
 import React, { useState } from "react";
-import "./StudentHome.css"; // Include your custom styles here
+import "./StudentHome.css"; 
+import StudentSidebar from "./StudentSidebar";
+import Header from "./Header";
+import Footer from "./Footer";
+
 
 const StudentHome = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isIPDropdownOpen, setIsIPDropdownOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const toggleIPDropdown = () => {
+    setIsIPDropdownOpen(!isIPDropdownOpen);
+  };
   return (
     <div className="admin-home">
-      <header className="admin-header">
-        <img src="/logo.png" alt="Logo" className="admin-logo" />
-        <h1>College of Information and Computing Sciences</h1>
-        <h2>Capstone Projects and Thesis Papers Directory</h2>
-        <button className="logout-button">
-          <img src="out.png" alt="Logout" className="icon-image sb-icons" />{" "}
-          Logout
-        </button>
-      </header>
+      <Header/>
       <div className="content-container">
-        <nav className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
-          <ul>
-            <li>
-              <a href="#" className="icon">
-                <img
-                  src="/home.png"
-                  alt="Home"
-                  className="icon-image  sb-icons"
-                />
-                <span className="label">Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon">
-                <img
-                  src="./manage.png"
-                  alt="Manage"
-                  className="icon-image sb-icons"
-                />
-                <span className="label">IP registered</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon">
-                <img src="./it.png" alt="IT" className="icon-image  sb-icons" />
-                <span className="label">IT</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon">
-                <img src="./is.png" alt="IS" className="icon-image sb-icons" />
-                <span className="label">IS</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="icon">
-                <img src="./cs.png" alt="CS" className="icon-image sb-icons" />
-                <span className="label">CS</span>
-              </a>
-            </li>
-          </ul>
-          <div className="profile-section">
-            <a href="#" className="profile-button">
-              <img
-                src="./profile.png"
-                alt="Profile"
-                className="icon-image sb-icons"
-              />
-              <span className="label">Profile</span>
-            </a>
-          </div>
-        </nav>
+      <StudentSidebar/>
         <main className="main-content">
           <h1>Homepage</h1>
           <div className="info-section">
@@ -105,13 +54,7 @@ const StudentHome = () => {
           </div>
         </main>
       </div>
-      <footer className="admin-footer">
-        <p>Terms of Use | Privacy Policy | UST website</p>
-        <p>
-          UST Blessed Pier Giorgio Frassati Building, España Blvd, Sampaloc,
-          Manila, 1000 Metro Manila
-        </p>
-      </footer>
+    <Footer/>
     </div>
   );
 };
