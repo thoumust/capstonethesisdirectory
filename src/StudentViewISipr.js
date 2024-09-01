@@ -9,7 +9,7 @@ const StudentViewITipr = () => {
   const [filterYear, setFilterYear] = useState("all");
 
   // Mock data for the table (you would fetch this from an API)
-  const ITcapstoneProjects = [
+  const IScapstoneProjects = [
     // Add capstone project data here
   ];
 
@@ -26,7 +26,7 @@ const StudentViewITipr = () => {
         <main className="main-content">
         <div className="capstone-container">
       <header className="capstone-header">
-        <h1>IP-registered IT Capstone Projects</h1>
+        <h1>IP-registered IS Capstone Projects</h1>
         <div className="search-bar">
           <input
             type="text"

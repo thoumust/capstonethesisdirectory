@@ -25,8 +25,6 @@ const StudentSidebar = () => {
     navigate("/");
   };
 
-
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -85,13 +83,13 @@ const StudentSidebar = () => {
     {isIPDropdownOpen && (
       <ul className="dropdown-list">
         <li>
-          <a href="/ip-registered/ITipreg" className="dropdown-item">IT Capstones</a>
+          <a href="/ip-registered/IT-cap" className="dropdown-item">IT Capstones</a>
         </li>
         <li>
-          <a href="/ip-registered/ISipreg" className="dropdown-item">IS Capstones</a>
+          <a href="/ip-registered/IS-cap" className="dropdown-item">IS Capstones</a>
         </li>
         <li>
-          <a href="/ip-registered/CSipreg" className="dropdown-item">CS Thesis</a>
+          <a href="/ip-registered/CS-thes" className="dropdown-item">CS Thesis</a>
         </li>
       </ul>
     )}

@@ -4,12 +4,12 @@ import StudentSidebar from "./StudentSidebar";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const StudentViewITipr = () => {
+const StudentViewCSipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
 
   // Mock data for the table (you would fetch this from an API)
-  const ITcapstoneProjects = [
+  const thesisPapers = [
     // Add capstone project data here
   ];
 
@@ -26,7 +26,7 @@ const StudentViewITipr = () => {
         <main className="main-content">
         <div className="capstone-container">
       <header className="capstone-header">
-        <h1>IP-registered IT Capstone Projects</h1>
+        <h1>IP-registered CS Thesis Papers</h1>
         <div className="search-bar">
           <input
             type="text"
@@ -122,4 +122,4 @@ const StudentViewITipr = () => {
   );
 };
 
-export default StudentViewITipr;
+export default StudentViewCSipr;
