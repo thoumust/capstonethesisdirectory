@@ -1,9 +1,9 @@
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./StudentProfile.css";
 
-const StudentSidebar = () => {
+const AdminSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isIPDropdownOpen, setIsIPDropdownOpen] = useState(false);
 
@@ -23,7 +23,7 @@ const StudentSidebar = () => {
 <nav className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
 <ul>
   <li>
-    <a href="/student-home" className="icon">
+    <a href="/admin-home" className="icon">
       <img
         src="/home.png"
         alt="Home"
@@ -32,6 +32,8 @@ const StudentSidebar = () => {
       <span className="label">Home</span>
     </a>
   </li>
+
+  
 
   {/* IP Registered with Dropdown */}
   <li>
@@ -47,19 +49,26 @@ const StudentSidebar = () => {
     {isIPDropdownOpen && (
       <ul className="dropdown-list">
         <li>
-          <a href="/ip-registered/IT-cap" className="dropdown-item">IT Capstones</a>
+          <Link to="/admin/ip-registered/IT-cap" className="dropdown-item">IT Capstones</Link>
         </li>
         <li>
-          <a href="/ip-registered/IS-cap" className="dropdown-item">IS Capstones</a>
+          <Link to="/admin/ip-registered/IS-cap" className="dropdown-item">IS Capstones</Link>
         </li>
         <li>
-          <a href="/ip-registered/CS-thes" className="dropdown-item">CS Thesis</a>
+          <Link to="/admin/ip-registered/CS-thes" className="dropdown-item">CS Thesis</Link>
         </li>
       </ul>
     )}
   </li>
 
   {/* Other Sidebar Items */}
+  <li>
+    <a href="#" className="icon">
+    <img src="./approval.png" alt="Approval" className="icon-image  sb-icons" />
+      <span className="label">Approval</span>
+    </a>
+  </li>
+
   <li>
     <a href="#" className="icon">
       <img src="./best.png" alt="IT" className="icon-image sb-icons" />
@@ -78,9 +87,15 @@ const StudentSidebar = () => {
       <span className="label">CS</span>
     </a>
   </li>
+  <li>
+                            <a href="#" className="icon">
+                                <img src="./accs.png" alt="Account Management" className="icon-image sb-icons" />
+                                <span className="label">Manage Accounts</span>
+                            </a>
+                        </li>
 </ul>
 <div className="profile-section">
-  <a href="/student-profile" className="profile-button">
+  <a href="/admin-profile" className="profile-button">
     <img
       src="./profile.png"
       alt="Profile"
@@ -93,4 +108,4 @@ const StudentSidebar = () => {
   );
 };
 
-export  default StudentSidebar;
+export  default AdminSidebar;

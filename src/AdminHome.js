@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AdminHome.css'; // Include your custom styles here
+import AdminSidebar from './AdminSidebar';
 
 const AdminHome = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -19,58 +20,8 @@ const AdminHome = () => {
                 </button>
             </header>
             <div className="content-container">
-                <nav className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-                    <ul>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="/home.png" alt="Home" className="icon-image  sb-icons" />
-                                <span className="label">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="./manage.png" alt="Manage" className="icon-image sb-icons" />
-                                <span className="label">Manage papers</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="./approval.png" alt="Approval" className="icon-image  sb-icons" />
-                                <span className="label">Approval</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="./it.png" alt="IT" className="icon-image  sb-icons" />
-                                <span className="label">IT</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="./is.png" alt="IS" className="icon-image sb-icons" />
-                                <span className="label">IS</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="./cs.png" alt="CS" className="icon-image sb-icons" />
-                                <span className="label">CS</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="icon">
-                                <img src="./accs.png" alt="Account Management" className="icon-image sb-icons" />
-                                <span className="label">Manage Accounts</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div className="profile-section">
-                        <a href="#" className="profile-button">
-                            <img src="./profile.png" alt="Profile" className="icon-image sb-icons" />
-                            <span className="label">Profile</span>
-                        </a>
-                    </div>
-                </nav>
+  <AdminSidebar/>
+
                 <main className="main-content">
                     <h1>Homepage</h1>
                     <div className="info-section">
