@@ -11,43 +11,90 @@ const StudentLogin = () => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
 
-    // Validate fields as the user types
-    if (name === "email" && !/\S+@\S+\.\S+/.test(value)) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        email: "Email address is invalid.",
-      }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    if (name === "email") {
+      if (!/\S+@ust\.edu\.ph$/.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          email: "Email must be a valid UST email.",
+        }));
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+      }
+    }
+
+    if (name === "password") {
+      if (value.length < 8) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          password: "Password must be at least 8 characters long.",
+        }));
+      } else if (!/[A-Z]/.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          password: "Password must contain at least one uppercase letter.",
+        }));
+      } else if (!/[a-z]/.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          password: "Password must contain at least one lowercase letter.",
+        }));
+      } else if (!/\d/.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          password: "Password must contain at least one number.",
+        }));
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, password: "" }));
+      }
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
 
-    // Basic email validation
     if (!formValues.email) {
-      newErrors.email = "Email address is required.";
-    } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
-      newErrors.email = "Email address is invalid.";
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@ust\.edu\.ph$/.test(formValues.email)) {
+      newErrors.email =
+        "Email must be a valid UST email (e.g., Group10@ust.edu.ph).";
     }
 
-    // Password validation
     if (!formValues.password) {
       newErrors.password = "Password is required.";
+    } else if (formValues.password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters long.";
+    } else if (!/[A-Z]/.test(formValues.password)) {
+      newErrors.password =
+        "Password must contain at least one uppercase letter.";
+    } else if (!/[a-z]/.test(formValues.password)) {
+      newErrors.password =
+        "Password must contain at least one lowercase letter.";
+    } else if (!/\d/.test(formValues.password)) {
+      newErrors.password = "Password must contain at least one number.";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Validate the form before submission
     if (validateForm()) {
-      // Assuming login is successful, redirect to StudentHome
-      navigate("/student-home");
+      // Temporary Database
+      const mockDatabase = {
+        email: "Group10@ust.edu.ph",
+        password: "@Group10",
+      };
+
+      if (
+        formValues.email === mockDatabase.email &&
+        formValues.password === mockDatabase.password
+      ) {
+        navigate("/student-home");
+      } else {
+        setErrors({ password: "Invalid email or password." });
+      }
     }
   };
 
@@ -61,7 +108,9 @@ const StudentLogin = () => {
         <img src="/logo.png" alt="College Logo" className="logo" />
         <h2>College of Information and Computing Sciences</h2>
         <h3>Capstone Projects and Thesis Papers Directory</h3>
-        <div style={{justifyContent: "center", textAlign:"center"}}><h1>Student Login</h1></div>
+        <div style={{ justifyContent: "center", textAlign: "center" }}>
+          <h1>Student Login</h1>
+        </div>
         <form className="login-form" onSubmit={handleLogin}>
           <label>Email Address:</label>
           <input
@@ -102,7 +151,8 @@ const StudentLogin = () => {
         </div>
         <div className="studentfooter">
           <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> |{" "}
-          <a href="#">UST website</a> |<a href="/admin-login"> Admin Log in</a> |<a href="/faculty-login"> Faculty Log in</a>
+          <a href="#">UST website</a> |<a href="/admin-login"> Admin Log in</a>{" "}
+          |<a href="/faculty-login"> Faculty Log in</a>
         </div>
       </div>
     </div>
