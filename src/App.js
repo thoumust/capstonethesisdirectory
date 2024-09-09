@@ -18,8 +18,18 @@ import AdminProfile from "./AdminProfile";
 import AdminAddITCap from "./AdminAddITCap";
 import AdminAddISCap from "./AdminAddISCap";
 import AdminAddCSThes from "./AdminAddCSThes";
-
-
+import AdminITApproval from "./AdminITApproval";
+import AdminISApproval from "./AdminISApproval";
+import AdminCSApproval from "./AdminCSApproval";
+import AdminFullDocu from "./AdminFullDocu";
+import AdminApprovalForm from "./AdminApprovalForm";
+import AdminBestIT from "./AdminBestIT";
+import AdminBestIS from "./AdminBestIS";
+import AdminBestCS from "./AdminBestCS";
+import AdminManageRoles from "./AdminManageRoles";
+import AdminEditCSThesis from "./AdminEditCSThesis";
+import AdminEditISCap from "./AdminEditISCap";
+import AdminEditITCap from "./AdminEditITCap";
 
 function App() {
   return (
@@ -31,10 +41,22 @@ function App() {
         <Route path="admin/ip-registered/IT-cap" element={<AdminViewITipr />} />
         <Route path="admin/ip-registered/IS-cap" element={<AdminViewISipr />} />
         <Route path="admin/ip-registered/CS-thes" element={<AdminViewCSipr />} />
+        <Route path="/admin/edit-IS-Cap/:projectId" element={<AdminEditISCap />} />
+        <Route path="/admin/edit-cs-thesis/:id" element={<AdminEditCSThesis />} />
+        <Route path="/admin/edit-IT-Cap/:projectId" element={<AdminEditITCap />} />
         <Route path="/admin-profile" element={<AdminProfile />} />
         <Route path="/admin/add-IT-Cap" element={<AdminAddITCap />} />
         <Route path="/admin/add-IS-Cap" element={<AdminAddISCap />} />
         <Route path="/admin/add-CS-Thes" element={<AdminAddCSThes />} />
+        <Route path="/admin/approval-IT" element={<AdminITApproval />} />
+        <Route path="/admin/approval-IS" element={<AdminISApproval />} />
+        <Route path="/admin/approval-CS" element={<AdminCSApproval />} />
+        <Route path="/admin/full-document" element={<AdminFullDocu/>}/>
+        <Route path="/admin/approval-form" element={<AdminApprovalForm/>}/>
+        <Route path="/admin/BestIT" element={<AdminBestIT/>}/>
+        <Route path="/admin/BestIS" element={<AdminBestIS/>}/>
+        <Route path="/admin/BestCS" element={<AdminBestCS/>}/>
+        <Route path="/admin/roles" element={<AdminManageRoles/>}/>
 
 
         {/* Faculty */}

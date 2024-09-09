@@ -6,6 +6,8 @@ import "./StudentProfile.css";
 const AdminSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isIPDropdownOpen, setIsIPDropdownOpen] = useState(false);
+  const [isApprovalDropdownOpen, setIsApprovalDropdownOpen] = useState(false);
+
 
   const navigate = useNavigate();
 
@@ -16,6 +18,10 @@ const AdminSidebar = () => {
 
   const toggleIPDropdown = () => {
     setIsIPDropdownOpen(!isIPDropdownOpen);
+  };
+
+  const toggleApprovalDropdown = () => {
+    setIsApprovalDropdownOpen(!isApprovalDropdownOpen);
   };
 
   return (
@@ -62,33 +68,52 @@ const AdminSidebar = () => {
   </li>
 
   {/* Other Sidebar Items */}
+  {/* Approval with Dropdown */}
   <li>
-    <a href="#" className="icon">
-    <img src="./approval.png" alt="Approval" className="icon-image  sb-icons" />
-      <span className="label">Approval</span>
-    </a>
+    <div className="icon" onClick={toggleApprovalDropdown} style={{ cursor: "pointer" }}>
+      <img
+        src="./approval.png"
+        alt="Approval"
+        className="icon-image sb-icons"
+      />
+      <span className="label"> Pendings </span>
+      <span className="dropdown-arrow">{isApprovalDropdownOpen ? "▲" : "▼"}</span>
+    </div>
+    {isApprovalDropdownOpen && (
+      <ul className="dropdown-list">
+        <li>
+          <Link to="/admin/approval-IT" className="dropdown-item">IT Capstones</Link>
+        </li>
+        <li>
+          <Link to="/admin/approval-IS" className="dropdown-item">IS Capstones</Link>
+        </li>
+        <li>
+          <Link to="/admin/approval-CS" className="dropdown-item">CS Thesis</Link>
+        </li>
+      </ul>
+    )}
   </li>
 
   <li>
-    <a href="#" className="icon">
+    <a href="/admin/BestIT" className="icon">
       <img src="./best.png" alt="IT" className="icon-image sb-icons" />
       <span className="label">IT</span>
     </a>
   </li>
   <li>
-    <a href="#" className="icon">
+    <a href="/admin/BestIS" className="icon">
       <img src="./best.png" alt="IS" className="icon-image sb-icons" />
       <span className="label">IS</span>
     </a>
   </li>
   <li>
-    <a href="#" className="icon">
+    <a href="/admin/BestCS" className="icon">
       <img src="./best.png" alt="CS" className="icon-image sb-icons" />
       <span className="label">CS</span>
     </a>
   </li>
   <li>
-                            <a href="#" className="icon">
+                            <a href="/admin/roles" className="icon">
                                 <img src="./accs.png" alt="Account Management" className="icon-image sb-icons" />
                                 <span className="label">Manage Accounts</span>
                             </a>
