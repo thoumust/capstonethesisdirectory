@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import AdminSidebar from './AdminSidebar';
+import FacultySidebar from './FacultySidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
 
-const AdminApproval = () => {
+const FacultyApprovalForm = () => {
   const location = useLocation();
   const { approvalForm } = location.state || {}; // Fetch the full document passed from the previous page
 
@@ -12,7 +12,7 @@ const AdminApproval = () => {
     <div className="admin-home">
       <Header />
       <div className="content-container">
-        <AdminSidebar />
+        <FacultySidebar />
         <main className="main-content">
           <div className="document-container">
             <h1>Approval Form</h1>
@@ -32,4 +32,4 @@ const AdminApproval = () => {
   );
 };
 
-export default AdminApproval;
+export default FacultyApprovalForm;

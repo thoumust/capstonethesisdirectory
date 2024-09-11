@@ -30,6 +30,19 @@ import AdminManageRoles from "./AdminView/AdminManageRoles";
 import AdminEditCSThesis from "./AdminView/AdminEditCSThesis";
 import AdminEditISCap from "./AdminView/AdminEditISCap";
 import AdminEditITCap from "./AdminView/AdminEditITCap";
+import FacultyBestCS from "./FacultyView/FacultyBestCS";
+import FacultyBestIS from "./FacultyView/FacultyBestIS";
+import FacultyBestIT from "./FacultyView/FacultyBestIT";
+import FacultyProfile from "./FacultyView/FacultyProfile";
+import FacultyRegister from "./FacultyView/FacultyRegister";
+import FacultyViewCSipr from "./FacultyView/FacultyViewCSipr";
+import FacultyViewISipr from "./FacultyView/FacultyViewISipr";
+import FacultyViewITipr from "./FacultyView/FacultyViewITipr";
+import FacultyHome from "./FacultyView/FacultyHome";
+import FacultyApprovalForm from "./FacultyView/FacultyApprovalForm";
+
+
+
 
 function App() {
   return (
@@ -61,6 +74,20 @@ function App() {
 
         {/* Faculty */}
         <Route path="/faculty-login" element={<FacultyLogin />} />
+        <Route path="/faculty-register" element={<FacultyRegister />} />
+        <Route path="/faculty/profile" element={<FacultyProfile />} />
+        <Route path="/faculty/ip-registered/IT-cap" element={<FacultyViewITipr />} />
+        <Route path="/faculty/ip-registered/IS-cap" element={<FacultyViewISipr />} />
+        <Route path="/faculty/ip-registered/CS-thes" element={<FacultyViewCSipr />} />
+        <Route path="/faculty/BestIT" element={<FacultyBestIT/>}/>
+        <Route path="/faculty/BestIS" element={<FacultyBestIS/>}/>
+        <Route path="/faculty/BestCS" element={<FacultyBestCS/>}/>
+        <Route path="/faculty-home" element={<FacultyHome />} />
+        <Route path="/faculty/approval-form" element={<FacultyApprovalForm  />} />
+
+
+
+
 
         {/* Student */}
         <Route path="/" element={<StudentLogin />} />
