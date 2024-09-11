@@ -1,35 +1,35 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AdminLogin from "./AdminLogin";
-import StudentLogin from "./StudentLogin";
-import FacultyLogin from "./FacultyLogin";
-import PasswordRecovery from "./PasswordRecovery";
-import AdminHome from "./AdminHome";
-import AdminViewITipr from "./AdminViewITipr"
-import AdminViewISipr from "./AdminViewISipr"
-import AdminViewCSipr from "./AdminViewCSipr"
-import StudentRegister from "./StudentRegister";
-import StudentHome from "./StudentHome"; // Import the StudentHome component
-import StudentProfile from "./StudentProfile";
-import StudentViewITipr from "./StudentViewITipr";
-import StudentViewISipr from "./StudentViewISipr";
-import StudentViewCSipr from "./StudentViewCSipr";
-import AdminProfile from "./AdminProfile";
-import AdminAddITCap from "./AdminAddITCap";
-import AdminAddISCap from "./AdminAddISCap";
-import AdminAddCSThes from "./AdminAddCSThes";
-import AdminITApproval from "./AdminITApproval";
-import AdminISApproval from "./AdminISApproval";
-import AdminCSApproval from "./AdminCSApproval";
-import AdminFullDocu from "./AdminFullDocu";
-import AdminApprovalForm from "./AdminApprovalForm";
-import AdminBestIT from "./AdminBestIT";
-import AdminBestIS from "./AdminBestIS";
-import AdminBestCS from "./AdminBestCS";
-import AdminManageRoles from "./AdminManageRoles";
-import AdminEditCSThesis from "./AdminEditCSThesis";
-import AdminEditISCap from "./AdminEditISCap";
-import AdminEditITCap from "./AdminEditITCap";
+import AdminLogin from "./AdminView/AdminLogin";
+import StudentLogin from "./StudentView/StudentLogin";
+import FacultyLogin from "./FacultyView/FacultyLogin";
+import PasswordRecovery from "./General/PasswordRecovery";
+import AdminHome from "./AdminView/AdminHome";
+import AdminViewITipr from "./AdminView/AdminViewITipr"
+import AdminViewISipr from "./AdminView/AdminViewISipr"
+import AdminViewCSipr from "./AdminView/AdminViewCSipr"
+import StudentRegister from "./StudentView/StudentRegister";
+import StudentHome from "./StudentView/StudentHome"; // Import the StudentHome component
+import StudentProfile from "./StudentView/StudentProfile";
+import StudentViewITipr from "./StudentView/StudentViewITipr";
+import StudentViewISipr from "./StudentView/StudentViewISipr";
+import StudentViewCSipr from "./StudentView/StudentViewCSipr";
+import AdminProfile from "./AdminView/AdminProfile";
+import AdminAddITCap from "./AdminView/AdminAddITCap";
+import AdminAddISCap from "./AdminView/AdminAddISCap";
+import AdminAddCSThes from "./AdminView/AdminAddCSThes";
+import AdminITApproval from "./AdminView/AdminITApproval";
+import AdminISApproval from "./AdminView/AdminISApproval";
+import AdminCSApproval from "./AdminView/AdminCSApproval";
+import AdminFullDocu from "./AdminView/AdminFullDocu";
+import AdminApprovalForm from "./AdminView/AdminApprovalForm";
+import AdminBestIT from "./AdminView/AdminBestIT";
+import AdminBestIS from "./AdminView/AdminBestIS";
+import AdminBestCS from "./AdminView/AdminBestCS";
+import AdminManageRoles from "./AdminView/AdminManageRoles";
+import AdminEditCSThesis from "./AdminView/AdminEditCSThesis";
+import AdminEditISCap from "./AdminView/AdminEditISCap";
+import AdminEditITCap from "./AdminView/AdminEditITCap";
 
 function App() {
   return (
