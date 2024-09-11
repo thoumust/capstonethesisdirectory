@@ -6,23 +6,12 @@ import "../StudentView/StudentProfile.css";
 const FacultySidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isIPDropdownOpen, setIsIPDropdownOpen] = useState(false);
-  const [isApprovalDropdownOpen, setIsApprovalDropdownOpen] = useState(false);
 
-
-  const navigate = useNavigate();
-
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
   const toggleIPDropdown = () => {
     setIsIPDropdownOpen(!isIPDropdownOpen);
   };
 
-  const toggleApprovalDropdown = () => {
-    setIsApprovalDropdownOpen(!isApprovalDropdownOpen);
-  };
 
   return (
 
