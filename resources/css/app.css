@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#dassbord{
+    color: rgb(107, 89, 72);
+}
