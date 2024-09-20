@@ -5,6 +5,23 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+#Student Routing
+
+
+#Faculty Routing
+
+
+#Admin Routing
+
+Route::get("/StudentLogin", function(){
+    return Inertia::render('StudentView/StudentLogin');
+});
+
+Route::get("/student-home", function(){
+    return Inertia::render('StudentView/StudentHome');
+})->name('student-home');
+
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
