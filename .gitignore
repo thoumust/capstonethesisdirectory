@@ -1,11 +1,13 @@
 /.phpunit.cache
 /node_modules
+#regenerate ^ by npm install
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
 /vendor
-.env
+#regenerate ^ by composer install
+# .env
 .env.backup
 .env.production
 .phpactor.json
@@ -19,3 +21,9 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+
+#php artisan key:generate
+#php artisan migrate --seed
+#npm run dev
+#php artisan serve
+#make sure mysql is on
