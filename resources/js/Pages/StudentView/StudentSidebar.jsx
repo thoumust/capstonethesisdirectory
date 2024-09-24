@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./StudentProfile.css";
+
+import "../../../css/StudentView/StudentProfile.css";
 
 const StudentSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isIPDropdownOpen, setIsIPDropdownOpen] = useState(false);
 
-  const navigate = useNavigate();
+
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

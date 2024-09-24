@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./StudentHome.css";
+import "../../../css/StudentView/StudentHome.css";
 import StudentSidebar from "./StudentSidebar";
 import Header from "../../General/Header";
 import Footer from "../../General/Footer";

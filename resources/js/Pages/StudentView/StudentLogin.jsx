@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./StudentLogin.css";
+// import { useNavigate } from "react-router-dom";
+import "../../../css/StudentView/StudentLogin.css";
+import { router } from '@inertiajs/react'
+
+
 
 const StudentLogin = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [formValues, setFormValues] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
 
@@ -91,7 +94,7 @@ const StudentLogin = () => {
         formValues.email === mockDatabase.email &&
         formValues.password === mockDatabase.password
       ) {
-        navigate("/student-home");
+        router.visit('/student-home');
       } else {
         setErrors({ password: "Invalid email or password." });
       }
@@ -99,7 +102,7 @@ const StudentLogin = () => {
   };
 
   const handleForgotPassword = () => {
-    navigate("/password-recovery");
+    route("/password-recovery");
   };
 
   return (
@@ -145,7 +148,7 @@ const StudentLogin = () => {
         </form>
         <div className="register-section">
           <span>Don't have an Account? </span>
-          <a href="/student-register" className="register-link">
+          <a href={route('student-register')} className="register-link">
             Register Here!
           </a>
         </div>

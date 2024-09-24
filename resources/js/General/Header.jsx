@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../StudentView/StudentProfile.css";
+
+import "../../css/StudentView/StudentProfile.css";
 
 const Header = () => {
-    const navigate = useNavigate();
+
     const handleLogout = () => {
         // Handle logout logic
-        navigate("/");
+        window.location.href = "/";
       };
 
     return (

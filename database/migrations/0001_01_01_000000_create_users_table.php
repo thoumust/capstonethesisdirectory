@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); #Student ID for students maybe Incremement for others
-            $table->string('name'); #Temp
+            $table->string('studentNumber')->nullable();
+            $table->string('name')->nullable(); #Temp
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();    
             $table->string('email')->unique();
