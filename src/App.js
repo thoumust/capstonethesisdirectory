@@ -69,7 +69,7 @@ function App() {
           path="/admin/edit-IT-Cap/:projectId"
           element={<AdminEditITCap />}
         />
-        <Route path="/admin-profile" element={<AdminProfile />} />
+        <Route path="/admin/profile" element={<AdminProfile />} />
         <Route path="/admin/add-IT-Cap" element={<AdminAddITCap />} />
         <Route path="/admin/add-IS-Cap" element={<AdminAddISCap />} />
         <Route path="/admin/add-CS-Thes" element={<AdminAddCSThes />} />
