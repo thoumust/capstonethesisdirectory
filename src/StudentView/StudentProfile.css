@@ -149,7 +149,7 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: fixed;
-  height: 100vh;
+  height: 91vh;
   z-index: 1; /* Make sure the sidebar is on top */
 }
 
@@ -231,13 +231,15 @@
 
 /* Profile section */
 .profile-section {
-  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0px;
+  width: 220px;
 }
 
 .profile-button {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: left;
   padding: 15px;
   color: #ecf0f1;
   text-decoration: none;
@@ -258,17 +260,6 @@
   margin-bottom: 10px;
 }
 
-.profile-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  height: 60px;
-  background-color: #811716;
-}
 
 .profile-button .label {
   display: none;
@@ -277,7 +268,7 @@
 .sidebar.open .profile-button .label,
 .sidebar:hover .profile-button .label {
   display: inline-block;
-  margin-left: 15px;
+
 }
 
 /* Optional: Adjust dropdown arrow */
