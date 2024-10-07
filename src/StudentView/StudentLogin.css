@@ -22,8 +22,6 @@ body {
   text-align: center;
 }
 
-
-
 .logo {
   width: 60px;
   margin-bottom: 20px;
@@ -43,7 +41,7 @@ h3 {
 }
 
 .form-container {
-  flex-grow: 1; /* Allows the form to take up available space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +79,7 @@ h3 {
 }
 
 .forgot-password:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .login-button {
@@ -169,12 +167,12 @@ h3 {
 }
 
 .register-link {
-  color: #a0a0a0;
+  color: #50bef1;
   cursor: pointer;
 }
 
 .register-link:hover {
-  color:#357ae8
+  color: #357ae8;
 }
 
 .error-text {

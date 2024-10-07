@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./StudentLogin.css";
+import TermsOfUseModal from "../General/TermsOfUseModal";
 
 const StudentLogin = () => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const [showTermsModal, setShowTermsModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
 
+    // Validate email
     if (name === "email") {
       if (!/\S+@ust\.edu\.ph$/.test(value)) {
         setErrors((prevErrors) => ({
@@ -22,6 +25,7 @@ const StudentLogin = () => {
       }
     }
 
+    // Validate password
     if (name === "password") {
       if (value.length < 8) {
         setErrors((prevErrors) => ({
@@ -81,7 +85,6 @@ const StudentLogin = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Temporary Database
       const mockDatabase = {
         email: "Group10@ust.edu.ph",
         password: "@Group10",
@@ -100,6 +103,14 @@ const StudentLogin = () => {
 
   const handleForgotPassword = () => {
     navigate("/password-recovery");
+  };
+
+  const handlePrivacyPolicy = () => {
+    window.location.href = "https://www.ust.edu.ph/privacy-policy/";
+  };
+
+  const handleTermsOfUse = () => {
+    setShowTermsModal(true);
   };
 
   return (
@@ -150,11 +161,30 @@ const StudentLogin = () => {
           </a>
         </div>
         <div className="studentfooter">
-          <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> |{" "}
-          <a href="#">UST website</a> |<a href="/admin-login"> Admin Log in</a>{" "}
-          |<a href="/faculty-login"> Faculty Log in</a>
+          <a href="#" onClick={handleTermsOfUse}>
+            Terms of Use
+          </a>{" "}
+          |
+          <a href="#" onClick={handlePrivacyPolicy}>
+            Privacy Policy
+          </a>{" "}
+          |
+          <a
+            href="https://www.ust.edu.ph/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            UST website
+          </a>{" "}
+          |<a href="/admin-login"> Admin Log in</a> |
+          <a href="/faculty-login"> Faculty Log in</a>
         </div>
       </div>
+      {/* Add the Terms of Use Modal */}
+      <TermsOfUseModal
+        show={showTermsModal}
+        handleClose={() => setShowTermsModal(false)}
+      />
     </div>
   );
 };

@@ -1,29 +1,60 @@
 import React, { useState } from "react";
 import "./AdminIPreg.css";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
-import AdminModal from "./AdminModal"; 
+import AdminModal from "./AdminModal";
 
 const AdminViewITipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
-  const [showModal, setShowModal] = useState(false); 
-  const [acmDocument, setAcmDocument] = useState(null); 
+  const [showModal, setShowModal] = useState(false);
+  const [acmDocument, setAcmDocument] = useState(null);
   const navigate = useNavigate();
 
   // Mock data for the table
   const ITcapstoneProjects = [
-    { 
-      ipRegistrationNumber: "2023-IT-0001", 
-      title: "IT Project 1", 
-      specialization: "Specialization 1", 
-      yearPublished: 2023, 
-      authors: "Author 1", 
-      keywords: "Keyword 1"
+    {
+      ipRegistrationNumber: "2023-IT-0001",
+      title: "IT Project 1",
+      specialization: "Web Development",
+      yearPublished: 2023,
+      authors: "Author 1",
+      keywords: "React, Node.js",
     },
-    // Add more projects here as needed
+    {
+      ipRegistrationNumber: "2023-IT-0002",
+      title: "IT Project 2",
+      specialization: "Mobile App Development",
+      yearPublished: 2022,
+      authors: "Author 2",
+      keywords: "React Native, Firebase",
+    },
+    {
+      ipRegistrationNumber: "2023-IT-0003",
+      title: "IT Project 3",
+      specialization: "Data Science",
+      yearPublished: 2023,
+      authors: "Author 3",
+      keywords: "Python, Machine Learning",
+    },
+    {
+      ipRegistrationNumber: "2023-IT-0004",
+      title: "IT Project 4",
+      specialization: "Cybersecurity",
+      yearPublished: 2021,
+      authors: "Author 4",
+      keywords: "Ethical Hacking, Network Security",
+    },
+    {
+      ipRegistrationNumber: "2023-IT-0005",
+      title: "IT Project 5",
+      specialization: "Cloud Computing",
+      yearPublished: 2023,
+      authors: "Author 5",
+      keywords: "AWS, Azure",
+    },
   ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
@@ -35,7 +66,7 @@ const AdminViewITipr = () => {
 
   const handleViewAcm = (doc) => {
     setAcmDocument(doc);
-    setShowModal(true); 
+    setShowModal(true);
   };
 
   const handleViewFullDoc = (doc) => {
@@ -143,19 +174,29 @@ const AdminViewITipr = () => {
                       </button>
                       <button
                         className="view-button"
-                        onClick={() => handleViewAcm(`ACM Document for ${project.title}`)}
+                        onClick={() =>
+                          handleViewAcm(`ACM Document for ${project.title}`)
+                        }
                       >
                         View ACM
                       </button>
                       <button
                         className="view-button"
-                        onClick={() => handleViewFullDoc(`Full Document for ${project.title}`)}
+                        onClick={() =>
+                          handleViewFullDoc(
+                            `Full Document for ${project.title}`
+                          )
+                        }
                       >
                         View Full Document
                       </button>
                       <button
                         className="view-button"
-                        onClick={() => handleViewApproval(`Approval form for ${project.title}`)}
+                        onClick={() =>
+                          handleViewApproval(
+                            `Approval form for ${project.title}`
+                          )
+                        }
                       >
                         View Approval Form
                       </button>
@@ -174,7 +215,11 @@ const AdminViewITipr = () => {
         </main>
       </div>
 
-      <AdminModal showModal={showModal} setShowModal={setShowModal} acmDocument={acmDocument} />
+      <AdminModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        acmDocument={acmDocument}
+      />
 
       <Footer />
     </div>

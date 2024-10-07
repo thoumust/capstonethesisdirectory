@@ -1,40 +1,69 @@
 import React, { useState } from "react";
 import "../AdminView/AdminIPreg.css";
-import { useNavigate } from "react-router-dom"; 
-import FacultySidebar from './FacultySidebar';
+import { useNavigate } from "react-router-dom";
+import FacultySidebar from "./FacultySidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
-import FacultyModal from "./FacultyModal"; 
+import FacultyModal from "./FacultyModal";
 
 const FacultyViewISipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
-  const [showModal, setShowModal] = useState(false); 
-  const [acmDocument, setAcmDocument] = useState(null); 
+  const [showModal, setShowModal] = useState(false);
+  const [acmDocument, setAcmDocument] = useState(null);
   const navigate = useNavigate();
 
   // Mock data for the table
   const IScapstoneProjects = [
-    { 
-      ipRegistrationNumber: "2023-IS-0001", 
-      title: "IS Project 1", 
-      specialization: "Specialization 1", 
-      yearPublished: 2023, 
-      authors: "Author 1", 
-      keywords: "Keyword 1"
+    {
+      ipRegistrationNumber: "2023-IS-0001",
+      title: "IS Project 1",
+      specialization: "Specialization 1",
+      yearPublished: 2023,
+      authors: "Author 1",
+      keywords: "Keyword 1",
     },
-    // Add more projects here
+    {
+      ipRegistrationNumber: "2023-IS-0002",
+      title: "IS Project 2",
+      specialization: "Web Development",
+      yearPublished: 2022,
+      authors: "Author 2",
+      keywords: "HTML, CSS, JavaScript",
+    },
+    {
+      ipRegistrationNumber: "2023-IS-0003",
+      title: "IS Project 3",
+      specialization: "Software Engineering",
+      yearPublished: 2023,
+      authors: "Author 3",
+      keywords: "Agile, Scrum",
+    },
+    {
+      ipRegistrationNumber: "2023-IS-0004",
+      title: "IS Project 4",
+      specialization: "Cyber Security",
+      yearPublished: 2021,
+      authors: "Author 4",
+      keywords: "Firewalls, VPNs",
+    },
+    {
+      ipRegistrationNumber: "2023-IS-0005",
+      title: "IS Project 5",
+      specialization: "Cloud Computing",
+      yearPublished: 2023,
+      authors: "Author 5",
+      keywords: "AWS, Azure",
+    },
   ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
 
-
   const handleViewAcm = (doc) => {
     setAcmDocument(doc);
-    setShowModal(true); 
+    setShowModal(true);
   };
-
 
   const handleViewApproval = (doc) => {
     navigate("/admin/approval-form", { state: { approvalFrom: doc } });
@@ -43,7 +72,6 @@ const FacultyViewISipr = () => {
   const handleEdit = (projectId) => {
     navigate(`/admin/edit-IS-Cap/${projectId}`);
   };
-  
 
   return (
     <div className="admin-home">
@@ -129,13 +157,19 @@ const FacultyViewISipr = () => {
                     <td>
                       <button
                         className="view-button"
-                        onClick={() => handleViewAcm(`ACM Document for ${project.title}`)}
+                        onClick={() =>
+                          handleViewAcm(`ACM Document for ${project.title}`)
+                        }
                       >
                         View ACM
                       </button>
                       <button
                         className="view-button"
-                        onClick={() => handleViewApproval(`Approval form for ${project.title}`)}
+                        onClick={() =>
+                          handleViewApproval(
+                            `Approval form for ${project.title}`
+                          )
+                        }
                       >
                         View Approval Form
                       </button>
@@ -145,13 +179,16 @@ const FacultyViewISipr = () => {
               </tbody>
             </table>
 
-            <footer className="capstone-footer">
-            </footer>
+            <footer className="capstone-footer"></footer>
           </div>
         </main>
       </div>
 
-      <FacultyModal showModal={showModal} setShowModal={setShowModal} acmDocument={acmDocument} />
+      <FacultyModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        acmDocument={acmDocument}
+      />
 
       <Footer />
     </div>

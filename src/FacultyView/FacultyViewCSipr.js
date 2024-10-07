@@ -1,28 +1,69 @@
 import React, { useState } from "react";
 import "../AdminView/AdminIPreg.css";
-import { useNavigate } from "react-router-dom"; 
-import FacultySidebar from './FacultySidebar';
+import { useNavigate } from "react-router-dom";
+import FacultySidebar from "./FacultySidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
-import FacultyModal from "./FacultyModal"; 
+import FacultyModal from "./FacultyModal";
 
 const FacultyViewCSipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
-  const [showModal, setShowModal] = useState(false); 
-  const [acmDocument, setAcmDocument] = useState(null); 
+  const [showModal, setShowModal] = useState(false);
+  const [acmDocument, setAcmDocument] = useState(null);
   const navigate = useNavigate();
 
   // Mock data for the table
   const CSthesisPapers = [
-    { id: 1, ipRegNo: "2023-CS-0001", title: "Thesis 1", specialization: "AI", yearPublished: 2023, authors: ["Author 1", "Author 2"], keywords: ["AI", "Learning"] },
-    { id: 2, ipRegNo: "2023-CS-0002", title: "Thesis 2", specialization: "Networking", yearPublished: 2022, authors: ["Author 3", "Author 4"], keywords: ["Networking", "Security"] },
-    // Add more projects here
+    {
+      id: 1,
+      ipRegNo: "2023-CS-0001",
+      title: "Thesis 1",
+      specialization: "AI",
+      yearPublished: 2023,
+      authors: ["Author 1", "Author 2"],
+      keywords: ["AI", "Learning"],
+    },
+    {
+      id: 2,
+      ipRegNo: "2023-CS-0002",
+      title: "Thesis 2",
+      specialization: "Networking",
+      yearPublished: 2022,
+      authors: ["Author 3", "Author 4"],
+      keywords: ["Networking", "Security"],
+    },
+    {
+      id: 3,
+      ipRegNo: "2023-CS-0003",
+      title: "Thesis 3",
+      specialization: "Web Development",
+      yearPublished: 2021,
+      authors: ["Author 5"],
+      keywords: ["React", "Node.js"],
+    },
+    {
+      id: 4,
+      ipRegNo: "2023-CS-0004",
+      title: "Thesis 4",
+      specialization: "Machine Learning",
+      yearPublished: 2020,
+      authors: ["Author 6", "Author 7"],
+      keywords: ["Neural Networks", "Deep Learning"],
+    },
+    {
+      id: 5,
+      ipRegNo: "2023-CS-0005",
+      title: "Thesis 5",
+      specialization: "Cloud Computing",
+      yearPublished: 2023,
+      authors: ["Author 8"],
+      keywords: ["AWS", "Azure"],
+    },
   ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
-
 
   const handleEdit = (projectId) => {
     // Navigate to the edit page with the selected project ID
@@ -31,7 +72,7 @@ const FacultyViewCSipr = () => {
 
   const handleViewAcm = (doc) => {
     setAcmDocument(doc);
-    setShowModal(true); 
+    setShowModal(true);
   };
 
   const handleViewApproval = (doc) => {
@@ -122,13 +163,21 @@ const FacultyViewCSipr = () => {
                     <td>
                       <button
                         className="view-button"
-                        onClick={() => handleViewAcm(`ACM Document for Project ${project.id}`)}
+                        onClick={() =>
+                          handleViewAcm(
+                            `ACM Document for Project ${project.id}`
+                          )
+                        }
                       >
                         View ACM
                       </button>
                       <button
                         className="view-button"
-                        onClick={() => handleViewApproval(`Approval form for Project ${project.id}`)}
+                        onClick={() =>
+                          handleViewApproval(
+                            `Approval form for Project ${project.id}`
+                          )
+                        }
                       >
                         View Approval Form
                       </button>
@@ -138,13 +187,16 @@ const FacultyViewCSipr = () => {
               </tbody>
             </table>
 
-            <footer className="capstone-footer">
-            </footer>
+            <footer className="capstone-footer"></footer>
           </div>
         </main>
       </div>
 
-      <FacultyModal showModal={showModal} setShowModal={setShowModal} acmDocument={acmDocument} />
+      <FacultyModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        acmDocument={acmDocument}
+      />
 
       <Footer />
     </div>

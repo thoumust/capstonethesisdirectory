@@ -66,13 +66,13 @@ const StudentSidebar = () => {
 
         {/* Other Sidebar Items */}
         <li>
-          <a href="best-it" className="icon">
+          <a href="/best-it" className="icon">
             <img src="./best.png" alt="IT" className="icon-image sb-icons" />
             <span className="label">IT</span>
           </a>
         </li>
         <li>
-          <a href="best-is" className="icon">
+          <a href="/best-is" className="icon">
             <img src="./best.png" alt="IS" className="icon-image sb-icons" />
             <span className="label">IS</span>
           </a>
