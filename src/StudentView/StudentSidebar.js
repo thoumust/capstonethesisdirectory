@@ -78,7 +78,7 @@ const StudentSidebar = () => {
           </a>
         </li>
         <li>
-          <a href="/best-cs" className="icon">
+          <a href="./best-cs" className="icon">
             <img src="./best.png" alt="CS" className="icon-image sb-icons" />
             <span className="label">CS</span>
           </a>

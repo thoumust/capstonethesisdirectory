@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./AdminIPreg.css";
 import { useNavigate } from "react-router-dom"; 
-// import AdminSidebar from "./AdminSidebar";
-import Sidebar from "../General/Sidebar";
+import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import AdminModal from "./AdminModal"; 
@@ -13,15 +12,13 @@ const AdminViewCSipr = () => {
   const [showModal, setShowModal] = useState(false); 
   const [acmDocument, setAcmDocument] = useState(null); 
   const [filterPopup, setFilterPopup] = useState(false); // State for showing filter modal
-  const [minYear, setMinYear] = useState(2011); // State for minimum year
-  const [maxYear, setMaxYear] = useState(2024); // State for maximum year
+  const [yearRange, setYearRange] = useState([2011, 2024]); // State for year range
   const navigate = useNavigate();
 
   // Mock data for the table
   const CSthesisPapers = [
     { id: 1, ipRegNo: "2023-CS-0001", title: "Thesis 1", specialization: "AI", yearPublished: 2023, authors: ["Author 1", "Author 2"], keywords: ["AI", "Learning"] },
     { id: 2, ipRegNo: "2023-CS-0002", title: "Thesis 2", specialization: "Networking", yearPublished: 2022, authors: ["Author 3", "Author 4"], keywords: ["Networking", "Security"] },
-    // Add more projects here
   ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
@@ -55,38 +52,46 @@ const AdminViewCSipr = () => {
 
   // Handle Year Range Change
   const handleYearRangeChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "minYear") {
-      setMinYear(parseInt(value));
+    const newValue = parseInt(e.target.value);
+    const handle = e.target.name;
+
+    // Adjusting minimum or maximum based on which handle is being moved
+    if (handle === "min") {
+      // Prevent moving min beyond max
+      if (newValue < yearRange[1]) {
+        setYearRange([newValue, yearRange[1]]);
+      }
     } else {
-      setMaxYear(parseInt(value));
+      // Prevent moving max below min
+      if (newValue > yearRange[0]) {
+        setYearRange([yearRange[0], newValue]);
+      }
     }
   };
-
-  const userRole = "admin";  
 
   return (
     <div className="admin-home">
       <Header />
 
       <div className="content-container">
-        <Sidebar role={userRole} />
+        <AdminSidebar />
         <main className="main-content">
           <div className="capstone-container">
             <header className="capstone-header">
               <h1>IP-registered CS Thesis Papers</h1>
             </header>
             <div className="search-bar-outer">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-        <button className="search-button">
-          <img src="/search-icon.png" alt="Search" />
-        </button>
-      </div>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+              <button className="search-button">
+                <img src="/search-icon.png" alt="Search" />
+              </button>
+            </div>
+
             {/* Filters */}
             <div className="capstone-filters">
               <div className="availability-filters">
@@ -175,26 +180,37 @@ const AdminViewCSipr = () => {
             <h2>Advanced Filters</h2>
             <div className="filter-form">
               <label>Year Range</label>
-              <input
-                type="range"
-                min="2011"
-                max="2024"
-                value={minYear}
-                name="minYear"
-                onChange={handleYearRangeChange}
-              />
-              <input
-                type="range"
-                min="2011"
-                max="2024"
-                value={maxYear}
-                name="maxYear"
-                onChange={handleYearRangeChange}
-              />
+              <div className="range-slider">
+                <div
+                  className="slider-background"
+                  style={{
+                    left: `${((yearRange[0] - 2011) / (2024 - 2011)) * 100}%`,
+                    width: `${((yearRange[1] - yearRange[0]) / (2024 - 2011)) * 100}%`,
+                  }}
+                />
+                <input
+                  type="range"
+                  min="2011"
+                  max="2024"
+                  value={yearRange[0]}
+                  name="min"
+                  onChange={handleYearRangeChange}
+                  className="min-slider"
+                />
+                <input
+                  type="range"
+                  min="2011"
+                  max="2024"
+                  value={yearRange[1]}
+                  name="max"
+                  onChange={handleYearRangeChange}
+                  className="max-slider"
+                />
+              </div>
               <div className="range-inputs">
                 <input
                   type="number"
-                  value={minYear}
+                  value={yearRange[0]}
                   name="minYear"
                   onChange={handleYearRangeChange}
                   min="2011"
@@ -203,7 +219,7 @@ const AdminViewCSipr = () => {
                 />
                 <input
                   type="number"
-                  value={maxYear}
+                  value={yearRange[1]}
                   name="maxYear"
                   onChange={handleYearRangeChange}
                   min="2011"

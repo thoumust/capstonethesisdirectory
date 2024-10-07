@@ -118,8 +118,7 @@ const AdminSidebar = () => {
                                 <span className="label">Manage Accounts</span>
                             </a>
                         </li>
-</ul>
-<div className="profile-section">
+                        <div className="profile-section">
   <a href="/admin-profile" className="profile-button">
     <img
       src="./profile.png"
@@ -129,6 +128,8 @@ const AdminSidebar = () => {
     <span className="label">Profile</span>
   </a>
 </div>
+</ul>
+
 </nav>
   );
 };
