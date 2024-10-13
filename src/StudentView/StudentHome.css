@@ -208,6 +208,22 @@ body {
   line-height: 1.5;
 }
 
+/* Read More Button Styles */
+.read-more-button {
+  background-color: #a4231c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.read-more-button:hover {
+  background-color: #811716;
+}
+
 .admin-footer {
   background-color: #a4231c;
   color: white;
