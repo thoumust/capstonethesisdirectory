@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./AdminHome.css"; // Include your custom styles here
-import AdminSidebar from "./AdminSidebar";
-import Header from "../General/Header";
-import Footer from "../General/Footer";
+import "../../../css/AdminView/AdminHome.css"; // Include your custom styles here
+import FacultySidebar from "./FacultySidebar.jsx";
+import Header from "../../General/Header";
+import Footer from "../../General/Footer";
 
-const AdminHome = () => {
+const FacultyHome = () => {
   const [expandedSections, setExpandedSections] = useState({});
 
   const toggleExpand = (section) => {
@@ -18,7 +18,7 @@ const AdminHome = () => {
     <div className="admin-home">
       <Header />
       <div className="content-container">
-        <AdminSidebar />
+        <FacultySidebar />
         <main className="main-content">
           <h1>Homepage</h1>
 
@@ -193,4 +193,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default FacultyHome;

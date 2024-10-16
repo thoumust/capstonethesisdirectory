@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../StudentView/StudentProfile.css";
 import FacultySidebar from './FacultySidebar';
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 
 const FacultyProfile = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

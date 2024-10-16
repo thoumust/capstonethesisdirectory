@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import the hook
 import AdminSidebar from "./AdminSidebar";
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 import "./AdminIPreg.css";
 
 const AdminAddCSThes = () => {

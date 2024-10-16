@@ -1,7 +1,6 @@
 
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "../StudentView/StudentProfile.css";
+import "../../../css/StudentView/StudentProfile.css";
 
 const FacultySidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

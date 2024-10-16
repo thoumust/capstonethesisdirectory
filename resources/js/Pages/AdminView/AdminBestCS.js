@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './AdminBest.css';
 import AdminSidebar from './AdminSidebar';
-import Header from '../../General/Header';
-import Footer from '../../General/Footer';
+import Header from '../General/Header';
+import Footer from '../General/Footer';
 
 const AdminBestCS = () => {
   // Initial data for best projects (this can be fetched from an API)

@@ -7,8 +7,16 @@ use Inertia\Inertia;
     #Admin Routing
 
     #Faculty Routing
+    Route::get('/faculty-home', function () {
+        return Inertia::render('FacultyView/FacultyHome');
+    })->name('faculty-home');
+
 
     #Student Routing
+    Route::get('/StudentHome', function () {
+        return Inertia::render('StudentView/StudentHome');
+    })->name('StudentHome');
+
 
 
 Route::get('/dashboard', function () {
