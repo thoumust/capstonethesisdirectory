@@ -1,5 +1,5 @@
 import React from "react";
-import "./SubmitFinalRequirementsModal.css"; // Add styling in a new CSS file
+import "../../../css/StudentView/SubmitFinalRequirementsModal.css"; // Add styling in a new CSS file
 
 const SubmitFinalRequirementsModal = ({ show, handleClose }) => {
   if (!show) {

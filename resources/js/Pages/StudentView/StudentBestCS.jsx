@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../AdminView/AdminBest.css";
+import "../../../css/AdminView/AdminBest.css";
 import StudentSidebar from "./StudentSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./StudentProfile.css";
+
+import "../../../css/StudentView/StudentProfile.css";
 import StudentSidebar from "./StudentSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
@@ -14,7 +14,7 @@ const StudentProfile = () => {
   const [success, setSuccess] = useState("");
   const [isIPDropdownOpen, setIsIPDropdownOpen] = useState(false);
 
-  const navigate = useNavigate();
+
 
   // Mock user data (normally this would come from a backend or authentication context)
   const userData = {

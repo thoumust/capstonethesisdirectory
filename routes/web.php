@@ -128,13 +128,52 @@ use Inertia\Inertia;
 
 
 
-    #Student Routing
-    Route::get('/StudentHome', function () {
+    # Student Routing
+
+    Route::get('/', function () {
+        return Inertia::render('StudentView/StudentLogin');
+    })->name('student-login');
+
+    Route::get('/student-register', function () {
+        return Inertia::render('StudentView/StudentRegister');
+    })->name('student-register');
+
+    Route::get('/student-profile', function () {
+        return Inertia::render('StudentView/StudentProfile');
+    })->name('student-profile');
+
+    Route::get('/ip-registered/IT-cap', function () {
+        return Inertia::render('StudentView/StudentViewITipr');
+    })->name('student/ip-registered/IT-cap');
+
+    Route::get('/ip-registered/IS-cap', function () {
+        return Inertia::render('StudentView/StudentViewISipr');
+    })->name('student/ip-registered/IS-cap');
+
+    Route::get('/ip-registered/CS-thes', function () {
+        return Inertia::render('StudentView/StudentViewCSipr');
+    })->name('student/ip-registered/CS-thes');
+
+    Route::get('/student-home', function () {
         return Inertia::render('StudentView/StudentHome');
-    })->name('StudentHome');
+    })->name('student-home');
+
+    Route::get('/best-cs', function () {
+        return Inertia::render('StudentView/StudentBestCS');
+    })->name('student-best-cs');
+
+    Route::get('/best-is', function () {
+        return Inertia::render('StudentView/StudentBestIS');
+    })->name('student-best-is');
+
+    Route::get('/best-it', function () {
+        return Inertia::render('StudentView/StudentBestIT');
+    })->name('student-best-it');
 
 
 
+    #Auth
+    
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
