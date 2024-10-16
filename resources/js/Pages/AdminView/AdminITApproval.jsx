@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
-import "./AdminApproval.css";
+import "../../../css/AdminView/AdminApproval.css";
 
-const AdminISApproval = () => {
+const AdminITApproval = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
@@ -16,7 +16,7 @@ const AdminISApproval = () => {
         <AdminSidebar />
         <main className="main-content">
           <div className="approval-container">
-            <h1>Approval of IS Capstone Projects</h1>
+            <h1>Approval of IT Capstone Projects</h1>
 
             {/* Search box */}
             <div className="search-box">
@@ -106,4 +106,4 @@ const AdminISApproval = () => {
   );
 };
 
-export default AdminISApproval;
+export default AdminITApproval;

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import './AdminBest.css';
+import '../../../css/AdminView/AdminBest.css';
 import AdminSidebar from './AdminSidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
 
-const AdminBestIS = () => {
+const AdminBestIT = () => {
   // Initial data for best projects (this can be fetched from an API)
   const initialProjects = {
-    busAnalytics: ["Project 1", "Project 2", "Project 3"],
-    servMan: ["Project 4", "Project 5", "Project 6"]
+    webAndMobile: ["Project 1", "Project 2", "Project 3"],
+    itAutomation: ["Project 4", "Project 5", "Project 6"],
+    networkSecurity: ["Project 7", "Project 8", "Project 9"]
   };
 
   // State to store the current projects and if we're in edit mode
@@ -49,26 +50,27 @@ const AdminBestIS = () => {
         <div className="main-content">
           <div className="capstone-container">
             <div className="capstone-header">
-              <h1>Best IS Capstone Projects</h1>
+              <h1>Best IT Capstone Projects</h1>
             </div>
             <div className="capstone-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Business Analytics:</th>
-                    <th>Service Management:</th>
+                    <th>Web and Mobile Development:</th>
+                    <th>IT Automation:</th>
+                    <th>Network and Security:</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.busAnalytics.map((project, index) => (
+                  {projects.webAndMobile.map((project, index) => (
                     <tr key={index}>
                       <td>
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.busAnalytics[index]}
+                            value={editedProjects.webAndMobile[index]}
                             onChange={(e) =>
-                              handleChange('busAnalytics', index, e.target.value)
+                              handleChange('webAndMobile', index, e.target.value)
                             }
                           />
                         ) : (
@@ -79,13 +81,26 @@ const AdminBestIS = () => {
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.servMan[index]}
+                            value={editedProjects.itAutomation[index]}
                             onChange={(e) =>
-                              handleChange('servMan', index, e.target.value)
+                              handleChange('itAutomation', index, e.target.value)
                             }
                           />
                         ) : (
-                          projects.servMan[index]
+                          projects.itAutomation[index]
+                        )}
+                      </td>
+                      <td>
+                        {isEditMode ? (
+                          <input
+                            type="text"
+                            value={editedProjects.networkSecurity[index]}
+                            onChange={(e) =>
+                              handleChange('networkSecurity', index, e.target.value)
+                            }
+                          />
+                        ) : (
+                          projects.networkSecurity[index]
                         )}
                       </td>
                     </tr>
@@ -111,4 +126,4 @@ const AdminBestIS = () => {
   );
 };
 
-export default AdminBestIS;
+export default AdminBestIT;

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./StudentProfile.css";
 import StudentSidebar from "./StudentSidebar";
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 
 const StudentProfile = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

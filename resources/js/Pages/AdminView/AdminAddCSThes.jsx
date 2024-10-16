@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import the hook
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
-import "./AdminIPreg.css";
+import "../../../css/AdminView/AdminIPreg.css";
 
 const AdminAddCSThes = () => {
-  const navigate = useNavigate(); // Initialize the hook for navigation
+
 
   const [formData, setFormData] = useState({
     ipRegistration: "",
@@ -42,7 +41,7 @@ const AdminAddCSThes = () => {
 
   const handleCancel = () => {
     // Redirect to the desired route
-    navigate("/admin/ip-registered/CS-thes");
+    router.visit("/admin/ip-registered/CS-thes");
   };
 
   return (

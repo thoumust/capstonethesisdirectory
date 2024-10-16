@@ -1,5 +1,5 @@
 import React from 'react';
-import './AdminManageRoles.css';
+import '../../../css/AdminView/AdminManageRoles.css';
 import AdminSidebar from './AdminSidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';

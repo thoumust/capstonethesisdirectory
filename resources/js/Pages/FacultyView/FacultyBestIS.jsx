@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../../../css/AdminView/AdminBest.css';
 import FacultySidebar from './FacultySidebar.jsx';
-import Header from '../../General/Header';
-import Footer from '../../General/Footer';
+import Header from '../General/Header';
+import Footer from '../General/Footer';
 
 const FacultyBestIS = () => {
   // Initial data for best projects (this can be fetched from an API)

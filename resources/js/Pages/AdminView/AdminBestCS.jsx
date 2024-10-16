@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import './AdminBest.css';
+import '../../../css/AdminView/AdminBest.css';
 import AdminSidebar from './AdminSidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
 
-const AdminBestIT = () => {
+const AdminBestCS = () => {
   // Initial data for best projects (this can be fetched from an API)
   const initialProjects = {
-    webAndMobile: ["Project 1", "Project 2", "Project 3"],
-    itAutomation: ["Project 4", "Project 5", "Project 6"],
-    networkSecurity: ["Project 7", "Project 8", "Project 9"]
+    coreCS: ["Project 1", "Project 2", "Project 3"],
+    gameDev: ["Project 4", "Project 5", "Project 6"],
+    dataSci: ["Project 7", "Project 8", "Project 9"]
   };
 
   // State to store the current projects and if we're in edit mode
@@ -50,27 +50,27 @@ const AdminBestIT = () => {
         <div className="main-content">
           <div className="capstone-container">
             <div className="capstone-header">
-              <h1>Best IT Capstone Projects</h1>
+              <h1>Best CS Thesis Papers</h1>
             </div>
             <div className="capstone-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Web and Mobile Development:</th>
-                    <th>IT Automation:</th>
-                    <th>Network and Security:</th>
+                    <th>Core Computer Science:</th>
+                    <th>Game Development:</th>
+                    <th>Data Science:</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.webAndMobile.map((project, index) => (
+                  {projects.coreCS.map((project, index) => (
                     <tr key={index}>
                       <td>
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.webAndMobile[index]}
+                            value={editedProjects.coreCS[index]}
                             onChange={(e) =>
-                              handleChange('webAndMobile', index, e.target.value)
+                              handleChange('coreCS', index, e.target.value)
                             }
                           />
                         ) : (
@@ -81,26 +81,26 @@ const AdminBestIT = () => {
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.itAutomation[index]}
+                            value={editedProjects.gameDev[index]}
                             onChange={(e) =>
-                              handleChange('itAutomation', index, e.target.value)
+                              handleChange('gameDev', index, e.target.value)
                             }
                           />
                         ) : (
-                          projects.itAutomation[index]
+                          projects.gameDev[index]
                         )}
                       </td>
                       <td>
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.networkSecurity[index]}
+                            value={editedProjects.dataSci[index]}
                             onChange={(e) =>
-                              handleChange('networkSecurity', index, e.target.value)
+                              handleChange('dataSci', index, e.target.value)
                             }
                           />
                         ) : (
-                          projects.networkSecurity[index]
+                          projects.dataSci[index]
                         )}
                       </td>
                     </tr>
@@ -126,4 +126,4 @@ const AdminBestIT = () => {
   );
 };
 
-export default AdminBestIT;
+export default AdminBestCS;

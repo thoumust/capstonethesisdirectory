@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import './AdminBest.css';
+import '../../../css/AdminView/AdminBest.css';
 import AdminSidebar from './AdminSidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
 
-const AdminBestCS = () => {
+const AdminBestIS = () => {
   // Initial data for best projects (this can be fetched from an API)
   const initialProjects = {
-    coreCS: ["Project 1", "Project 2", "Project 3"],
-    gameDev: ["Project 4", "Project 5", "Project 6"],
-    dataSci: ["Project 7", "Project 8", "Project 9"]
+    busAnalytics: ["Project 1", "Project 2", "Project 3"],
+    servMan: ["Project 4", "Project 5", "Project 6"]
   };
 
   // State to store the current projects and if we're in edit mode
@@ -50,27 +49,26 @@ const AdminBestCS = () => {
         <div className="main-content">
           <div className="capstone-container">
             <div className="capstone-header">
-              <h1>Best CS Thesis Papers</h1>
+              <h1>Best IS Capstone Projects</h1>
             </div>
             <div className="capstone-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Core Computer Science:</th>
-                    <th>Game Development:</th>
-                    <th>Data Science:</th>
+                    <th>Business Analytics:</th>
+                    <th>Service Management:</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.coreCS.map((project, index) => (
+                  {projects.busAnalytics.map((project, index) => (
                     <tr key={index}>
                       <td>
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.coreCS[index]}
+                            value={editedProjects.busAnalytics[index]}
                             onChange={(e) =>
-                              handleChange('coreCS', index, e.target.value)
+                              handleChange('busAnalytics', index, e.target.value)
                             }
                           />
                         ) : (
@@ -81,26 +79,13 @@ const AdminBestCS = () => {
                         {isEditMode ? (
                           <input
                             type="text"
-                            value={editedProjects.gameDev[index]}
+                            value={editedProjects.servMan[index]}
                             onChange={(e) =>
-                              handleChange('gameDev', index, e.target.value)
+                              handleChange('servMan', index, e.target.value)
                             }
                           />
                         ) : (
-                          projects.gameDev[index]
-                        )}
-                      </td>
-                      <td>
-                        {isEditMode ? (
-                          <input
-                            type="text"
-                            value={editedProjects.dataSci[index]}
-                            onChange={(e) =>
-                              handleChange('dataSci', index, e.target.value)
-                            }
-                          />
-                        ) : (
-                          projects.dataSci[index]
+                          projects.servMan[index]
                         )}
                       </td>
                     </tr>
@@ -126,4 +111,4 @@ const AdminBestCS = () => {
   );
 };
 
-export default AdminBestCS;
+export default AdminBestIS;

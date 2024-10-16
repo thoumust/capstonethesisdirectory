@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AdminHome.css"; // Include your custom styles here
+import "../../../css/AdminView/AdminHome.css"; // Include your custom styles here
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";

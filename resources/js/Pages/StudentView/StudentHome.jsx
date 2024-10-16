@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../../../css/StudentView/StudentHome.css";
 import StudentSidebar from "./StudentSidebar";
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 
 const StudentHome = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

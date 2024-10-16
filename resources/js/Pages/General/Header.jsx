@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../../css/StudentView/StudentProfile.css";
+import "../../../css/StudentView/StudentProfile.css";
 
 const Header = () => {
 

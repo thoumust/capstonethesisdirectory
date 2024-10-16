@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./StudentIPreg.css";
 import StudentSidebar from "./StudentSidebar";
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 import SubmitFinalRequirementsModal from "./SubmitFinalRequirementsModal";
 
 const StudentViewITipr = () => {

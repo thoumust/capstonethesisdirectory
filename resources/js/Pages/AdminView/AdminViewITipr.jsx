@@ -1,59 +1,59 @@
 import React, { useState } from "react";
-import "./AdminIPreg.css";
-import { useNavigate } from "react-router-dom";
+import "../../../css/AdminView/AdminIPreg.css";
+
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import AdminModal from "./AdminModal";
 
-const AdminViewISipr = () => {
+const AdminViewITipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [acmDocument, setAcmDocument] = useState(null);
-  const navigate = useNavigate();
+
 
   // Mock data for the table
-  const IScapstoneProjects = [
+  const ITcapstoneProjects = [
     {
-      ipRegistrationNumber: "2023-IS-0001",
-      title: "IS Project 1",
-      specialization: "Database Management",
+      ipRegistrationNumber: "2023-IT-0001",
+      title: "IT Project 1",
+      specialization: "Web Development",
       yearPublished: 2023,
       authors: "Author 1",
-      keywords: "SQL, MySQL",
+      keywords: "React, Node.js",
     },
     {
-      ipRegistrationNumber: "2023-IS-0002",
-      title: "IS Project 2",
-      specialization: "Web Development",
+      ipRegistrationNumber: "2023-IT-0002",
+      title: "IT Project 2",
+      specialization: "Mobile App Development",
       yearPublished: 2022,
       authors: "Author 2",
-      keywords: "HTML, CSS, JavaScript",
+      keywords: "React Native, Firebase",
     },
     {
-      ipRegistrationNumber: "2023-IS-0003",
-      title: "IS Project 3",
-      specialization: "Software Engineering",
+      ipRegistrationNumber: "2023-IT-0003",
+      title: "IT Project 3",
+      specialization: "Data Science",
       yearPublished: 2023,
       authors: "Author 3",
-      keywords: "Agile, Scrum",
+      keywords: "Python, Machine Learning",
     },
     {
-      ipRegistrationNumber: "2023-IS-0004",
-      title: "IS Project 4",
-      specialization: "Network Security",
+      ipRegistrationNumber: "2023-IT-0004",
+      title: "IT Project 4",
+      specialization: "Cybersecurity",
       yearPublished: 2021,
       authors: "Author 4",
-      keywords: "Firewalls, VPNs",
+      keywords: "Ethical Hacking, Network Security",
     },
     {
-      ipRegistrationNumber: "2023-IS-0005",
-      title: "IS Project 5",
-      specialization: "E-commerce Systems",
+      ipRegistrationNumber: "2023-IT-0005",
+      title: "IT Project 5",
+      specialization: "Cloud Computing",
       yearPublished: 2023,
       authors: "Author 5",
-      keywords: "Online Shopping, Payment Gateway",
+      keywords: "AWS, Azure",
     },
   ];
 
@@ -61,7 +61,7 @@ const AdminViewISipr = () => {
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
 
   const handleAdd = () => {
-    navigate("/admin/add-IS-Cap");
+    router.visit("/admin/add-IT-Cap");
   };
 
   const handleViewAcm = (doc) => {
@@ -70,16 +70,15 @@ const AdminViewISipr = () => {
   };
 
   const handleViewFullDoc = (doc) => {
-    // Navigate to AdminFullDocu with document data
-    navigate("/admin/full-document", { state: { fullDocument: doc } });
+    router.visit("/admin/full-document", { state: { fullDocument: doc } });
   };
 
   const handleViewApproval = (doc) => {
-    navigate("/admin/approval-form", { state: { approvalFrom: doc } });
+    router.visit("/admin/approval-form", { state: { approvalFrom: doc } });
   };
 
   const handleEdit = (projectId) => {
-    navigate(`/admin/edit-IS-Cap/${projectId}`);
+    router.visit(`/admin/edit-IT-Cap/${projectId}`);
   };
 
   return (
@@ -90,7 +89,7 @@ const AdminViewISipr = () => {
         <main className="main-content">
           <div className="capstone-container">
             <header className="capstone-header">
-              <h1>IP-registered IS Capstone Projects</h1>
+              <h1>IP-registered IT Capstone Projects</h1>
               <div className="search-bar">
                 <input
                   type="text"
@@ -155,7 +154,7 @@ const AdminViewISipr = () => {
                 </tr>
               </thead>
               <tbody>
-                {IScapstoneProjects.map((project, index) => (
+                {ITcapstoneProjects.map((project, index) => (
                   <tr key={index}>
                     <td>{project.ipRegistrationNumber}</td>
                     <td>{project.title}</td>
@@ -165,9 +164,12 @@ const AdminViewISipr = () => {
                     <td>{project.keywords}</td>
                     <td>
                       <button className="view-button">
-                        Add to Best IS Capstone list
+                        Add to Best IT Capstone list
                       </button>
-                      <button className="view-button" onClick={handleEdit}>
+                      <button
+                        className="view-button"
+                        onClick={() => handleEdit(index + 1)}
+                      >
                         Edit
                       </button>
                       <button
@@ -206,7 +208,7 @@ const AdminViewISipr = () => {
 
             <footer className="capstone-footer">
               <button className="submit-button" onClick={handleAdd}>
-                Add IS Capstone Project
+                Add IT Capstone Project
               </button>
             </footer>
           </div>
@@ -224,4 +226,4 @@ const AdminViewISipr = () => {
   );
 };
 
-export default AdminViewISipr;
+export default AdminViewITipr;

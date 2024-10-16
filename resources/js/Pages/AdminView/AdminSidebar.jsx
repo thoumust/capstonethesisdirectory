@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "../StudentView/StudentProfile.css";
+import { Link } from '@inertiajs/react';
+import "../../../css/StudentView/StudentProfile.css";
 
 const AdminSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -9,7 +9,7 @@ const AdminSidebar = () => {
   const [isApprovalDropdownOpen, setIsApprovalDropdownOpen] = useState(false);
 
 
-  const navigate = useNavigate();
+  
 
 
   const toggleSidebar = () => {
@@ -55,13 +55,13 @@ const AdminSidebar = () => {
     {isIPDropdownOpen && (
       <ul className="dropdown-list">
         <li>
-          <Link to="/admin/ip-registered/IT-cap" className="dropdown-item">IT Capstones</Link>
+          <Link href="/admin/ip-registered/IT-cap" className="dropdown-item">IT Capstones</Link>
         </li>
         <li>
-          <Link to="/admin/ip-registered/IS-cap" className="dropdown-item">IS Capstones</Link>
+          <Link href="/admin/ip-registered/IS-cap" className="dropdown-item">IS Capstones</Link>
         </li>
         <li>
-          <Link to="/admin/ip-registered/CS-thes" className="dropdown-item">CS Thesis</Link>
+          <Link href="/admin/ip-registered/CS-thes" className="dropdown-item">CS Thesis</Link>
         </li>
       </ul>
     )}
@@ -82,13 +82,13 @@ const AdminSidebar = () => {
     {isApprovalDropdownOpen && (
       <ul className="dropdown-list">
         <li>
-          <Link to="/admin/approval-IT" className="dropdown-item">IT Capstones</Link>
+          <Link href="/admin/approval-IT" className="dropdown-item">IT Capstones</Link>
         </li>
         <li>
-          <Link to="/admin/approval-IS" className="dropdown-item">IS Capstones</Link>
+          <Link href="/admin/approval-IS" className="dropdown-item">IS Capstones</Link>
         </li>
         <li>
-          <Link to="/admin/approval-CS" className="dropdown-item">CS Thesis</Link>
+          <Link href="/admin/approval-CS" className="dropdown-item">CS Thesis</Link>
         </li>
       </ul>
     )}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../../../css/AdminView/AdminIPreg.css";
 import FacultySidebar from "./FacultySidebar";
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 import FacultyModal from "./FacultyModal";
 
 const FacultyViewISipr = () => {

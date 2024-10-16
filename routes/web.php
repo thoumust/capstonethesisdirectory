@@ -5,7 +5,91 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
     #Admin Routing
+    Route::get('/admin-login', function () {
+        return Inertia::render('AdminView/AdminLogin');
+    })->name('admin-login');
+    
+    Route::get('/admin-home', function () {
+        return Inertia::render('AdminView/AdminHome');
+    })->name('admin-home');
+    
+    Route::get('/admin/ip-registered/IT-cap', function () {
+        return Inertia::render('AdminView/AdminViewITipr');
+    })->name('admin/ip-registered/IT-cap');
+    
+    Route::get('/admin/ip-registered/IS-cap', function () {
+        return Inertia::render('AdminView/AdminViewISipr');
+    })->name('admin/ip-registered/IS-cap');
+    
+    Route::get('/admin/ip-registered/CS-thes', function () {
+        return Inertia::render('AdminView/AdminViewCSipr');
+    })->name('admin/ip-registered/CS-thes');
+    
+    Route::get('/admin/edit-IS-Cap/{projectId}', function ($projectId) {
+        return Inertia::render('AdminView/AdminEditISCap', ['projectId' => $projectId]);
+    })->name('admin/edit-IS-Cap');
+    
+    Route::get('/admin/edit-cs-thesis/{id}', function ($id) {
+        return Inertia::render('AdminView/AdminEditCSThesis', ['id' => $id]);
+    })->name('admin/edit-cs-thesis');
+    
+    Route::get('/admin/edit-IT-Cap/{projectId}', function ($projectId) {
+        return Inertia::render('AdminView/AdminEditITCap', ['projectId' => $projectId]);
+    })->name('admin/edit-IT-Cap');
+    
+    Route::get('/admin-profile', function () {
+        return Inertia::render('AdminView/AdminProfile');
+    })->name('admin-profile');
+    
+    Route::get('/admin/add-IT-Cap', function () {
+        return Inertia::render('AdminView/AdminAddITCap');
+    })->name('admin/add-IT-Cap');
+    
+    Route::get('/admin/add-IS-Cap', function () {
+        return Inertia::render('AdminView/AdminAddISCap');
+    })->name('admin/add-IS-Cap');
+    
+    Route::get('/admin/add-CS-Thes', function () {
+        return Inertia::render('AdminView/AdminAddCSThes');
+    })->name('admin/add-CS-Thes');
+    
+    Route::get('/admin/approval-IT', function () {
+        return Inertia::render('AdminView/AdminITApproval');
+    })->name('admin/approval-IT');
+    
+    Route::get('/admin/approval-IS', function () {
+        return Inertia::render('AdminView/AdminISApproval');
+    })->name('admin/approval-IS');
+    
+    Route::get('/admin/approval-CS', function () {
+        return Inertia::render('AdminView/AdminCSApproval');
+    })->name('admin/approval-CS');
+    
+    Route::get('/admin/full-document', function () {
+        return Inertia::render('AdminView/AdminFullDocu');
+    })->name('admin/full-document');
+    
+    Route::get('/admin/approval-form', function () {
+        return Inertia::render('AdminView/AdminApprovalForm');
+    })->name('admin/approval-form');
+    
+    Route::get('/admin/BestIT', function () {
+        return Inertia::render('AdminView/AdminBestIT');
+    })->name('admin/BestIT');
+    
+    Route::get('/admin/BestIS', function () {
+        return Inertia::render('AdminView/AdminBestIS');
+    })->name('admin/BestIS');
+    
+    Route::get('/admin/BestCS', function () {
+        return Inertia::render('AdminView/AdminBestCS');
+    })->name('admin/BestCS');
+    
+    Route::get('/admin/roles', function () {
+        return Inertia::render('AdminView/AdminManageRoles');
+    })->name('admin/roles');
 
+    
     #Faculty Routing
     Route::get('/faculty-home', function () {
         return Inertia::render('FacultyView/FacultyHome');
@@ -40,16 +124,6 @@ use Inertia\Inertia;
     Route::get('/faculty/approval-form', function () {
         return Inertia::render('FacultyView/FacultyApprovalForm');
     })->name('faculty/approval-form');
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../../../css/AdminView/AdminHome.css"; // Include your custom styles here
 import FacultySidebar from "./FacultySidebar.jsx";
-import Header from "../../General/Header";
-import Footer from "../../General/Footer";
+import Header from "../General/Header";
+import Footer from "../General/Footer";
 
 const FacultyHome = () => {
   const [expandedSections, setExpandedSections] = useState({});

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./AdminIPreg.css";
-import { useNavigate } from "react-router-dom"; 
+import "../../../css/AdminView/AdminIPreg.css";
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
@@ -13,7 +12,6 @@ const AdminViewCSipr = () => {
   const [acmDocument, setAcmDocument] = useState(null); 
   const [filterPopup, setFilterPopup] = useState(false); // State for showing filter modal
   const [yearRange, setYearRange] = useState([2011, 2024]); // State for year range
-  const navigate = useNavigate();
 
   // Mock data for the table
   const CSthesisPapers = [
@@ -25,11 +23,11 @@ const AdminViewCSipr = () => {
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
 
   const handleAdd = () => {
-    navigate("/admin/add-CS-Thes");
+    router.visit("/admin/add-CS-Thes");
   };
 
   const handleEdit = (projectId) => {
-    navigate(`/admin/edit-cs-thesis/${projectId}`);
+    router.visit(`/admin/edit-cs-thesis/${projectId}`);
   };
 
   const handleViewAcm = (doc) => {
@@ -38,11 +36,11 @@ const AdminViewCSipr = () => {
   };
 
   const handleViewFullDoc = (doc) => {
-    navigate("/admin/full-document", { state: { fullDocument: doc } });
+    router.visit("/admin/full-document", { state: { fullDocument: doc } });
   };
 
   const handleViewApproval = (doc) => {
-    navigate("/admin/approval-form", { state: { approvalForm: doc } });
+    router.visit("/admin/approval-form", { state: { approvalForm: doc } });
   };
 
   // Toggle Filter Popup
