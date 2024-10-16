@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import '../AdminView/AdminBest.css';
-import FacultySidebar from './FacultySidebar';
-import Header from '../General/Header';
-import Footer from '../General/Footer';
+import '../../../css/AdminView/AdminBest.css';
+import FacultySidebar from './FacultySidebar.jsx';
+import Header from '../../General/Header';
+import Footer from '../../General/Footer';
 
-const FacultyBestIT = () => {
+const FacultyBestIS = () => {
   // Initial data for best projects (this can be fetched from an API)
   const initialProjects = {
-    webAndMobile: ["Project 1", "Project 2", "Project 3"],
-    itAutomation: ["Project 4", "Project 5", "Project 6"],
-    networkSecurity: ["Project 7", "Project 8", "Project 9"]
+    busAnalytics: ["Project 1", "Project 2", "Project 3"],
+    servMan: ["Project 4", "Project 5", "Project 6"]
   };
 
   // State to store the current projects and if we're in edit mode
   const [projects, setProjects] = useState(initialProjects);
+  
 
   return (
     <div className="admin-home">
@@ -23,19 +23,18 @@ const FacultyBestIT = () => {
         <div className="main-content">
           <div className="capstone-container">
             <div className="capstone-header">
-              <h1>Best IT Capstone Projects</h1>
+              <h1>Best IS Capstone Projects</h1>
             </div>
             <div className="capstone-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Web and Mobile Development:</th>
-                    <th>IT Automation:</th>
-                    <th>Network and Security:</th>
+                    <th>Business Analytics:</th>
+                    <th>Service Management:</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.webAndMobile.map((project, index) => (
+                  {projects.busAnalytics.map((project, index) => (
                     <tr key={index}>
                       <td>
                         {
@@ -44,12 +43,7 @@ const FacultyBestIT = () => {
                       </td>
                       <td>
                         {
-                          projects.itAutomation[index]
-                        }
-                      </td>
-                      <td>
-                        {
-                          projects.networkSecurity[index]
+                          projects.servMan[index]
                         }
                       </td>
                     </tr>
@@ -58,7 +52,6 @@ const FacultyBestIT = () => {
               </table>
             </div>
             <div className="capstone-footer">
-              
             </div>
           </div>
         </div>
@@ -68,4 +61,4 @@ const FacultyBestIT = () => {
   );
 };
 
-export default FacultyBestIT;
+export default FacultyBestIS;

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import '../AdminView/AdminBest.css';
-import FacultySidebar from './FacultySidebar';
-import Header from '../General/Header';
-import Footer from '../General/Footer';
+import '../../../css/AdminView/AdminBest.css';
+import FacultySidebar from './FacultySidebar.jsx';
+import Header from '../../General/Header';
+import Footer from '../../General/Footer';
 
-const FacultyBestIS = () => {
+const FacultyBestCS = () => {
   // Initial data for best projects (this can be fetched from an API)
   const initialProjects = {
-    busAnalytics: ["Project 1", "Project 2", "Project 3"],
-    servMan: ["Project 4", "Project 5", "Project 6"]
+    coreCS: ["Project 1", "Project 2", "Project 3"],
+    gameDev: ["Project 4", "Project 5", "Project 6"],
+    dataSci: ["Project 7", "Project 8", "Project 9"]
   };
 
   // State to store the current projects and if we're in edit mode
   const [projects, setProjects] = useState(initialProjects);
-  
 
   return (
     <div className="admin-home">
@@ -23,18 +23,19 @@ const FacultyBestIS = () => {
         <div className="main-content">
           <div className="capstone-container">
             <div className="capstone-header">
-              <h1>Best IS Capstone Projects</h1>
+              <h1>Best CS Thesis Papers</h1>
             </div>
             <div className="capstone-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Business Analytics:</th>
-                    <th>Service Management:</th>
+                    <th>Core Computer Science:</th>
+                    <th>Game Development:</th>
+                    <th>Data Science:</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.busAnalytics.map((project, index) => (
+                  {projects.coreCS.map((project, index) => (
                     <tr key={index}>
                       <td>
                         {
@@ -43,7 +44,12 @@ const FacultyBestIS = () => {
                       </td>
                       <td>
                         {
-                          projects.servMan[index]
+                          projects.gameDev[index]
+                        }
+                      </td>
+                      <td>
+                        {
+                          projects.dataSci[index]
                         }
                       </td>
                     </tr>
@@ -61,4 +67,4 @@ const FacultyBestIS = () => {
   );
 };
 
-export default FacultyBestIS;
+export default FacultyBestCS;

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import '../AdminView/AdminBest.css';
-import FacultySidebar from './FacultySidebar';
-import Header from '../General/Header';
-import Footer from '../General/Footer';
+import '../../../css/AdminView/AdminBest.css';
+import FacultySidebar from './FacultySidebar.jsx';
+import Header from '../../General/Header';
+import Footer from '../../General/Footer';
 
-const FacultyBestCS = () => {
+const FacultyBestIT = () => {
   // Initial data for best projects (this can be fetched from an API)
   const initialProjects = {
-    coreCS: ["Project 1", "Project 2", "Project 3"],
-    gameDev: ["Project 4", "Project 5", "Project 6"],
-    dataSci: ["Project 7", "Project 8", "Project 9"]
+    webAndMobile: ["Project 1", "Project 2", "Project 3"],
+    itAutomation: ["Project 4", "Project 5", "Project 6"],
+    networkSecurity: ["Project 7", "Project 8", "Project 9"]
   };
 
   // State to store the current projects and if we're in edit mode
@@ -23,19 +23,19 @@ const FacultyBestCS = () => {
         <div className="main-content">
           <div className="capstone-container">
             <div className="capstone-header">
-              <h1>Best CS Thesis Papers</h1>
+              <h1>Best IT Capstone Projects</h1>
             </div>
             <div className="capstone-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Core Computer Science:</th>
-                    <th>Game Development:</th>
-                    <th>Data Science:</th>
+                    <th>Web and Mobile Development:</th>
+                    <th>IT Automation:</th>
+                    <th>Network and Security:</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.coreCS.map((project, index) => (
+                  {projects.webAndMobile.map((project, index) => (
                     <tr key={index}>
                       <td>
                         {
@@ -44,12 +44,12 @@ const FacultyBestCS = () => {
                       </td>
                       <td>
                         {
-                          projects.gameDev[index]
+                          projects.itAutomation[index]
                         }
                       </td>
                       <td>
                         {
-                          projects.dataSci[index]
+                          projects.networkSecurity[index]
                         }
                       </td>
                     </tr>
@@ -58,6 +58,7 @@ const FacultyBestCS = () => {
               </table>
             </div>
             <div className="capstone-footer">
+              
             </div>
           </div>
         </div>
@@ -67,4 +68,4 @@ const FacultyBestCS = () => {
   );
 };
 
-export default FacultyBestCS;
+export default FacultyBestIT;

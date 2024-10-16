@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import "../../../css/StudentView/StudentProfile.css";
+import { Link } from '@inertiajs/react';
 
 const FacultySidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -43,13 +44,13 @@ const FacultySidebar = () => {
     {isIPDropdownOpen && (
       <ul className="dropdown-list">
         <li>
-          <Link to="/faculty/ip-registered/IT-cap" className="dropdown-item">IT Capstones</Link>
+          <Link href="/faculty/ip-registered/IT-cap" className="dropdown-item">IT Capstones</Link>
         </li>
         <li>
-          <Link to="/faculty/ip-registered/IS-cap" className="dropdown-item">IS Capstones</Link>
+          <Link href="/faculty/ip-registered/IS-cap" className="dropdown-item">IS Capstones</Link>
         </li>
         <li>
-          <Link to="/faculty/ip-registered/CS-thes" className="dropdown-item">CS Thesis</Link>
+          <Link href="/faculty/ip-registered/CS-thes" className="dropdown-item">CS Thesis</Link>
         </li>
       </ul>
     )}

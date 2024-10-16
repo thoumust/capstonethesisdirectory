@@ -1,64 +1,73 @@
 import React, { useState } from "react";
-import "../AdminView/AdminIPreg.css";
-import { useNavigate } from "react-router-dom";
+import "../../../css/AdminView/AdminIPreg.css";
 import FacultySidebar from "./FacultySidebar";
-import Header from "../General/Header";
-import Footer from "../General/Footer";
+import Header from "../../General/Header";
+import Footer from "../../General/Footer";
 import FacultyModal from "./FacultyModal";
 
-const FacultyViewISipr = () => {
+const FacultyViewCSipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [acmDocument, setAcmDocument] = useState(null);
-  const navigate = useNavigate();
+  
 
   // Mock data for the table
-  const IScapstoneProjects = [
+  const CSthesisPapers = [
     {
-      ipRegistrationNumber: "2023-IS-0001",
-      title: "IS Project 1",
-      specialization: "Specialization 1",
+      id: 1,
+      ipRegNo: "2023-CS-0001",
+      title: "Thesis 1",
+      specialization: "AI",
       yearPublished: 2023,
-      authors: "Author 1",
-      keywords: "Keyword 1",
+      authors: ["Author 1", "Author 2"],
+      keywords: ["AI", "Learning"],
     },
     {
-      ipRegistrationNumber: "2023-IS-0002",
-      title: "IS Project 2",
-      specialization: "Web Development",
+      id: 2,
+      ipRegNo: "2023-CS-0002",
+      title: "Thesis 2",
+      specialization: "Networking",
       yearPublished: 2022,
-      authors: "Author 2",
-      keywords: "HTML, CSS, JavaScript",
+      authors: ["Author 3", "Author 4"],
+      keywords: ["Networking", "Security"],
     },
     {
-      ipRegistrationNumber: "2023-IS-0003",
-      title: "IS Project 3",
-      specialization: "Software Engineering",
-      yearPublished: 2023,
-      authors: "Author 3",
-      keywords: "Agile, Scrum",
-    },
-    {
-      ipRegistrationNumber: "2023-IS-0004",
-      title: "IS Project 4",
-      specialization: "Cyber Security",
+      id: 3,
+      ipRegNo: "2023-CS-0003",
+      title: "Thesis 3",
+      specialization: "Web Development",
       yearPublished: 2021,
-      authors: "Author 4",
-      keywords: "Firewalls, VPNs",
+      authors: ["Author 5"],
+      keywords: ["React", "Node.js"],
     },
     {
-      ipRegistrationNumber: "2023-IS-0005",
-      title: "IS Project 5",
+      id: 4,
+      ipRegNo: "2023-CS-0004",
+      title: "Thesis 4",
+      specialization: "Machine Learning",
+      yearPublished: 2020,
+      authors: ["Author 6", "Author 7"],
+      keywords: ["Neural Networks", "Deep Learning"],
+    },
+    {
+      id: 5,
+      ipRegNo: "2023-CS-0005",
+      title: "Thesis 5",
       specialization: "Cloud Computing",
       yearPublished: 2023,
-      authors: "Author 5",
-      keywords: "AWS, Azure",
+      authors: ["Author 8"],
+      keywords: ["AWS", "Azure"],
     },
   ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
+
+  const handleEdit = (projectId) => {
+    // Navigate to the edit page with the selected project ID
+    router.visit(`/faculty/edit-cs-thesis/${projectId}`);
+  };
 
   const handleViewAcm = (doc) => {
     setAcmDocument(doc);
@@ -66,11 +75,7 @@ const FacultyViewISipr = () => {
   };
 
   const handleViewApproval = (doc) => {
-    navigate("/admin/approval-form", { state: { approvalFrom: doc } });
-  };
-
-  const handleEdit = (projectId) => {
-    navigate(`/admin/edit-IS-Cap/${projectId}`);
+    router.visit("/faculty/approval-form", { state: { approvalForm: doc } });
   };
 
   return (
@@ -81,7 +86,7 @@ const FacultyViewISipr = () => {
         <main className="main-content">
           <div className="capstone-container">
             <header className="capstone-header">
-              <h1>IP-registered IS Capstone Projects</h1>
+              <h1>IP-registered CS Thesis Papers</h1>
               <div className="search-bar">
                 <input
                   type="text"
@@ -146,19 +151,21 @@ const FacultyViewISipr = () => {
                 </tr>
               </thead>
               <tbody>
-                {IScapstoneProjects.map((project, index) => (
-                  <tr key={index}>
-                    <td>{project.ipRegistrationNumber}</td>
+                {CSthesisPapers.map((project) => (
+                  <tr key={project.id}>
+                    <td>{project.ipRegNo}</td>
                     <td>{project.title}</td>
                     <td>{project.specialization}</td>
                     <td>{project.yearPublished}</td>
-                    <td>{project.authors}</td>
-                    <td>{project.keywords}</td>
+                    <td>{project.authors.join(", ")}</td>
+                    <td>{project.keywords.join(", ")}</td>
                     <td>
                       <button
                         className="view-button"
                         onClick={() =>
-                          handleViewAcm(`ACM Document for ${project.title}`)
+                          handleViewAcm(
+                            `ACM Document for Project ${project.id}`
+                          )
                         }
                       >
                         View ACM
@@ -167,7 +174,7 @@ const FacultyViewISipr = () => {
                         className="view-button"
                         onClick={() =>
                           handleViewApproval(
-                            `Approval form for ${project.title}`
+                            `Approval form for Project ${project.id}`
                           )
                         }
                       >
@@ -195,4 +202,4 @@ const FacultyViewISipr = () => {
   );
 };
 
-export default FacultyViewISipr;
+export default FacultyViewCSipr;

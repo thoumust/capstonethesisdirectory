@@ -1,5 +1,5 @@
   import React from "react";
-  import "../AdminView/AdminModal.css"; // Assuming you style the modal here
+  import "../../../css/AdminView/AdminModal.css"; // Assuming you style the modal here
 
   const FacultyModal = ({ showModal, setShowModal, acmDocument }) => {
     if (!showModal) return null; // Modal will only render if showModal is true
