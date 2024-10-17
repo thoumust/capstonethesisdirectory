@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
     #Admin Routing
+    Route::middleware(['auth', 'role:admin'])->group(function () {
+
     Route::get('/admin-login', function () {
         return Inertia::render('AdminView/AdminLogin');
     })->name('admin-login');
@@ -88,9 +91,10 @@ use Inertia\Inertia;
     Route::get('/admin/roles', function () {
         return Inertia::render('AdminView/AdminManageRoles');
     })->name('admin/roles');
-
+    });
     
     #Faculty Routing
+    Route::middleware(['auth', 'role:faculty'])->group(function () {
     Route::get('/faculty-home', function () {
         return Inertia::render('FacultyView/FacultyHome');
     })->name('faculty-home');
@@ -124,15 +128,14 @@ use Inertia\Inertia;
     Route::get('/faculty/approval-form', function () {
         return Inertia::render('FacultyView/FacultyApprovalForm');
     })->name('faculty/approval-form');
+});
 
 
 
+    # Student Routing 
+    Route::middleware(['auth', 'role:student'])->group(function () {
 
-    # Student Routing
 
-    Route::get('/', function () {
-        return Inertia::render('StudentView/StudentLogin');
-    })->name('student-login');
 
     Route::get('/student-register', function () {
         return Inertia::render('StudentView/StudentRegister');
@@ -169,7 +172,7 @@ use Inertia\Inertia;
     Route::get('/best-it', function () {
         return Inertia::render('StudentView/StudentBestIT');
     })->name('student-best-it');
-
+});
 
 
     #Auth
@@ -188,6 +191,8 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function(){
     Route::get('/', function(){
-        return Inertia::render('/dashboard');
+        return Inertia::render('Dashboard');
     });
 });
+
+
