@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { router } from '@inertiajs/react';
+import React, { useState, useEffect } from 'react';
+import { Head, Link, useForm, router } from '@inertiajs/react';
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import "../../../css/AdminView/AdminIPreg.css";
 
 const AdminAddITCap = () => {
-  const [formData, setFormData] = useState({
-    ipRegistration: "",
+  const { data, setData, post, processing, errors, reset } = useForm({
+    ipRegistration: '',
     specialization: "",
     capstoneTitle: "",
     author1: "",
-    author2: "",
+    author2: "",  
     author3: "",
     author4: "",
     technicalAdviser: "",

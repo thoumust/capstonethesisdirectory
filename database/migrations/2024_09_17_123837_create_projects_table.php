@@ -15,20 +15,24 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->timestamps();
             $table->id();
-            $table->string('ipregistry');
-            $table->string('title');
-            $table->string('tech_adviser');
-            $table->string(column: 'authors');  
-            $table->string(column: 'course');
+            $table->string('ipRegistration');
             $table->string(column: 'specialization');
-            $table->string('year');
-            $table->string('acm');
-            $table->string('full_document');
-            $table->string(column: 'pub_mat');
-            $table->string('itso_form');
-            $table->string('source_code');
-            $table->boolean('is_best_proj');
+            $table->string('title');
+            $table->string(column: 'author1');  
+            $table->string(column: 'author2');
+            $table->string(column: 'author3');
+            $table->string(column: 'author4');
+            $table->string('technicalAdviser');
+            $table->string('yearPublished');
+            $table->string('fullDocument');
+            $table->string('acmPaper');
+            $table->string('sourceCode');
+            $table->string('approvalForm');
             $table->string('keywords');
+            
+            $table->string(column: 'course');
+            $table->string(column: 'pub_mat');
+            $table->boolean('is_best_proj');
             $table->string('status');
         });
     }
