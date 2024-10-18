@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../../css/AdminView/AdminIPreg.css";
-
+import { router } from '@inertiajs/react';
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { router } from '@inertiajs/react';
 import "../../../css/StudentView/StudentRegister.css";
 
 const StudentRegister = () => {

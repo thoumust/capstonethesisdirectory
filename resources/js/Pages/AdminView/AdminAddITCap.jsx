@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import the hook
+import { router } from '@inertiajs/react';
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
-import "./AdminIPreg.css";
+import "../../../css/AdminView/AdminIPreg.css";
 
 const AdminAddITCap = () => {
-  const navigate = useNavigate(); // Initialize the hook for navigation
-
   const [formData, setFormData] = useState({
     ipRegistration: "",
     specialization: "",
@@ -42,7 +40,7 @@ const AdminAddITCap = () => {
 
   const handleCancel = () => {
     // Redirect to the desired route
-    navigate("/admin/ip-registered/IT-cap");
+   router.visit("/admin/ip-registered/IT-cap");
   };
 
   return (

@@ -4,7 +4,7 @@ import FacultySidebar from "./FacultySidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import FacultyModal from "./FacultyModal";
-
+import { router } from '@inertiajs/react';
 const FacultyViewCSipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");

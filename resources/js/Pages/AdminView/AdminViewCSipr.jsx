@@ -4,7 +4,7 @@ import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import AdminModal from "./AdminModal"; 
-
+import { router } from '@inertiajs/react';
 const AdminViewCSipr = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");

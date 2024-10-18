@@ -43,7 +43,8 @@ use Inertia\Inertia;
     Route::get('/admin-profile', function () {
         return Inertia::render('AdminView/AdminProfile');
     })->name('admin-profile');
-    
+
+        // Admin Add Proj Stuff
     Route::get('/admin/add-IT-Cap', function () {
         return Inertia::render('AdminView/AdminAddITCap');
     })->name('admin/add-IT-Cap');
@@ -55,6 +56,8 @@ use Inertia\Inertia;
     Route::get('/admin/add-CS-Thes', function () {
         return Inertia::render('AdminView/AdminAddCSThes');
     })->name('admin/add-CS-Thes');
+
+    
     
     Route::get('/admin/approval-IT', function () {
         return Inertia::render('AdminView/AdminITApproval');
