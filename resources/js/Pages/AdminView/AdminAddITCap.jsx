@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Head, Link, useForm, router } from '@inertiajs/react';
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
@@ -6,10 +6,11 @@ import Footer from "../General/Footer";
 import "../../../css/AdminView/AdminIPreg.css";
 
 const AdminAddITCap = () => {
+  // Using useForm from Inertia to handle form data
   const { data, setData, post, processing, errors, reset } = useForm({
-    ipRegistration: '',
+    ipRegistration: "",
     specialization: "",
-    capstoneTitle: "",
+    title: "",
     author1: "",
     author2: "",  
     author3: "",
@@ -20,27 +21,35 @@ const AdminAddITCap = () => {
     acmPaper: null,
     sourceCode: null,
     approvalForm: null,
-    keywords: ""
+    keywords: "",
+    course: 'IT', // Always set course to "IT"
+
   });
 
+  // Handle input text changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setData(e.target.name, e.target.value);
   };
 
+  // Handle file input changes
   const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: files[0] }));
+    setData(e.target.name, e.target.files[0]);
   };
 
-  const handleSubmit = () => {
-    // Handle form submission
-    console.log(formData);
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Submitting form data to backend via Inertia post method
+    setData('course', 'IT');
+    post(route('admin/add-IT-Cap'), {
+      onSuccess: () => reset()  // Reset form after successful submission
+    });
   };
 
+  // Handle cancel button
   const handleCancel = () => {
-    // Redirect to the desired route
-   router.visit("/admin/ip-registered/IT-cap");
+    router.visit("/admin/ip-registered/IT-cap");
   };
 
   return (
@@ -51,36 +60,43 @@ const AdminAddITCap = () => {
         <main className="main-content">
           <div className="capstone-container">
             <h1>Add IT Capstone Project</h1>
-            <form className="capstone-form">
+            <form className="capstone-form" onSubmit={handleSubmit}>
               {/* Form Fields */}
               <div className="form-group">
                 <label>IP Registration #:</label>
                 <input
                   type="text"
                   name="ipRegistration"
-                  value={formData.ipRegistration}
+                  value={data.ipRegistration}
                   onChange={handleChange}
                 />
+                {errors.ipRegistration && <div>{errors.ipRegistration}</div>}
               </div>
 
               <div className="form-group">
                 <label>Specialization:</label>
-                <input
-                  type="text"
+                <select
                   name="specialization"
-                  value={formData.specialization}
+                  value={data.specialization}
                   onChange={handleChange}
-                />
+                >
+                  <option value="" disabled selected>Select Specialization</option>
+                  <option value="IT Automation">IT Automation</option>
+                  <option value="Network Security">Network Security</option>
+                  <option value="Web and Mobile App Development">Web and Mobile App Development</option>
+                </select>
+                {errors.specialization && <div>{errors.specialization}</div>}
               </div>
 
               <div className="form-group">
                 <label>Capstone Title:</label>
                 <input
                   type="text"
-                  name="capstoneTitle"
-                  value={formData.capstoneTitle}
+                  name="title"
+                  value={data.title}
                   onChange={handleChange}
                 />
+                {errors.title && <div>{errors.title}</div>}
               </div>
 
               <div className="form-group">
@@ -88,9 +104,10 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="author1"
-                  value={formData.author1}
+                  value={data.author1}
                   onChange={handleChange}
                 />
+                {errors.author1 && <div>{errors.author1}</div>}
               </div>
 
               <div className="form-group">
@@ -98,9 +115,10 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="author2"
-                  value={formData.author2}
+                  value={data.author2}
                   onChange={handleChange}
                 />
+                {errors.author2 && <div>{errors.author2}</div>}
               </div>
 
               <div className="form-group">
@@ -108,9 +126,10 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="author3"
-                  value={formData.author3}
+                  value={data.author3}
                   onChange={handleChange}
                 />
+                {errors.author3 && <div>{errors.author3}</div>}
               </div>
 
               <div className="form-group">
@@ -118,9 +137,10 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="author4"
-                  value={formData.author4}
+                  value={data.author4}
                   onChange={handleChange}
                 />
+                {errors.author4 && <div>{errors.author4}</div>}
               </div>
 
               <div className="form-group">
@@ -128,9 +148,10 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="technicalAdviser"
-                  value={formData.technicalAdviser}
+                  value={data.technicalAdviser}
                   onChange={handleChange}
                 />
+                {errors.technicalAdviser && <div>{errors.technicalAdviser}</div>}
               </div>
 
               <div className="form-group">
@@ -138,9 +159,10 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="yearPublished"
-                  value={formData.yearPublished}
+                  value={data.yearPublished}
                   onChange={handleChange}
                 />
+                {errors.yearPublished && <div>{errors.yearPublished}</div>}
               </div>
 
               <div className="form-group">
@@ -150,6 +172,7 @@ const AdminAddITCap = () => {
                   name="fullDocument"
                   onChange={handleFileChange}
                 />
+                {errors.fullDocument && <div>{errors.fullDocument}</div>}
               </div>
 
               <div className="form-group">
@@ -159,6 +182,7 @@ const AdminAddITCap = () => {
                   name="acmPaper"
                   onChange={handleFileChange}
                 />
+                {errors.acmPaper && <div>{errors.acmPaper}</div>}
               </div>
 
               <div className="form-group">
@@ -168,6 +192,7 @@ const AdminAddITCap = () => {
                   name="sourceCode"
                   onChange={handleFileChange}
                 />
+                {errors.sourceCode && <div>{errors.sourceCode}</div>}
               </div>
 
               <div className="form-group">
@@ -177,6 +202,7 @@ const AdminAddITCap = () => {
                   name="approvalForm"
                   onChange={handleFileChange}
                 />
+                {errors.approvalForm && <div>{errors.approvalForm}</div>}
               </div>
 
               <div className="form-group">
@@ -184,13 +210,14 @@ const AdminAddITCap = () => {
                 <input
                   type="text"
                   name="keywords"
-                  value={formData.keywords}
+                  value={data.keywords}
                   onChange={handleChange}
                 />
+                {errors.keywords && <div>{errors.keywords}</div>}
               </div>
 
               <div className="form-actions">
-                <button type="button" className="submit-button" onClick={handleSubmit}>
+                <button type="submit" className="submit-button" disabled={processing}>
                   Add IT Capstone Project
                 </button>
                 <button type="button" className="cancel-button" onClick={handleCancel}>

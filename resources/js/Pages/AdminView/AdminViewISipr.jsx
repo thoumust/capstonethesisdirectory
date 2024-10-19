@@ -1,61 +1,17 @@
 import React, { useState } from "react";
 import "../../../css/AdminView/AdminIPreg.css";
-import { router } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react'; 
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import AdminModal from "./AdminModal";
 
 const AdminViewISipr = () => {
+  const { isCapstoneProjects } = usePage().props;
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [acmDocument, setAcmDocument] = useState(null);
-
-
-  // Mock data for the table
-  const IScapstoneProjects = [
-    {
-      ipRegistrationNumber: "2023-IS-0001",
-      title: "IS Project 1",
-      specialization: "Database Management",
-      yearPublished: 2023,
-      authors: "Author 1",
-      keywords: "SQL, MySQL",
-    },
-    {
-      ipRegistrationNumber: "2023-IS-0002",
-      title: "IS Project 2",
-      specialization: "Web Development",
-      yearPublished: 2022,
-      authors: "Author 2",
-      keywords: "HTML, CSS, JavaScript",
-    },
-    {
-      ipRegistrationNumber: "2023-IS-0003",
-      title: "IS Project 3",
-      specialization: "Software Engineering",
-      yearPublished: 2023,
-      authors: "Author 3",
-      keywords: "Agile, Scrum",
-    },
-    {
-      ipRegistrationNumber: "2023-IS-0004",
-      title: "IS Project 4",
-      specialization: "Network Security",
-      yearPublished: 2021,
-      authors: "Author 4",
-      keywords: "Firewalls, VPNs",
-    },
-    {
-      ipRegistrationNumber: "2023-IS-0005",
-      title: "IS Project 5",
-      specialization: "E-commerce Systems",
-      yearPublished: 2023,
-      authors: "Author 5",
-      keywords: "Online Shopping, Payment Gateway",
-    },
-  ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
@@ -155,8 +111,8 @@ const AdminViewISipr = () => {
                 </tr>
               </thead>
               <tbody>
-                {IScapstoneProjects.map((project, index) => (
-                  <tr key={index}>
+                {isCapstoneProjects.map((project, index) => (
+                  <tr key={project.id}>
                     <td>{project.ipRegistrationNumber}</td>
                     <td>{project.title}</td>
                     <td>{project.specialization}</td>
@@ -167,7 +123,10 @@ const AdminViewISipr = () => {
                       <button className="view-button">
                         Add to Best IS Capstone list
                       </button>
-                      <button className="view-button" onClick={handleEdit}>
+                      <button
+                        className="view-button"
+                        onClick={() => handleEdit(project.id)} 
+                      >
                         Edit
                       </button>
                       <button

@@ -15,25 +15,25 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->timestamps();
             $table->id();
-            $table->string('ipRegistration');
-            $table->string(column: 'specialization');
-            $table->string('title');
-            $table->string(column: 'author1');  
-            $table->string(column: 'author2');
-            $table->string(column: 'author3');
-            $table->string(column: 'author4');
-            $table->string('technicalAdviser');
-            $table->string('yearPublished');
-            $table->string('fullDocument');
-            $table->string('acmPaper');
-            $table->string('sourceCode');
-            $table->string('approvalForm');
-            $table->string('keywords');
-            
-            $table->string(column: 'course');
-            $table->string(column: 'pub_mat');
-            $table->boolean('is_best_proj');
-            $table->string('status');
+            $table->string('ipRegistration')->nullable();
+            $table->string(column: 'specialization')->nullable();
+            $table->string('title')->nullable();
+            $table->string(column: 'author1')->nullable();  
+            $table->string(column: 'author2')->nullable();
+            $table->string(column: 'author3')->nullable();
+            $table->string(column: 'author4')->nullable();
+            $table->string('technicalAdviser')->nullable();
+            $table->string('yearPublished')->nullable();
+            $table->string('fullDocument')->nullable();
+            $table->string('acmPaper')->nullable();
+            $table->string('sourceCode')->nullable();
+            $table->string('approvalForm')->nullable();
+            $table->string('keywords')->nullable();
+
+            $table->string(column: 'course')->nullable();
+            $table->string(column: 'pub_mat')->nullable();
+            $table->boolean('is_best_proj')->nullable();
+            $table->string('status')->nullable();
         });
     }
 

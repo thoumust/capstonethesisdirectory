@@ -1,61 +1,17 @@
 import React, { useState } from "react";
 import "../../../css/AdminView/AdminIPreg.css";
-import { router } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react'; // usePage to access Inertia props
 import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import AdminModal from "./AdminModal";
 
 const AdminViewITipr = () => {
+  const { itCapstoneProjects } = usePage().props; // Get the data passed from Inertia
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [acmDocument, setAcmDocument] = useState(null);
-
-
-  // Mock data for the table
-  const ITcapstoneProjects = [
-    {
-      ipRegistrationNumber: "2023-IT-0001",
-      title: "IT Project 1",
-      specialization: "Web Development",
-      yearPublished: 2023,
-      authors: "Author 1",
-      keywords: "React, Node.js",
-    },
-    {
-      ipRegistrationNumber: "2023-IT-0002",
-      title: "IT Project 2",
-      specialization: "Mobile App Development",
-      yearPublished: 2022,
-      authors: "Author 2",
-      keywords: "React Native, Firebase",
-    },
-    {
-      ipRegistrationNumber: "2023-IT-0003",
-      title: "IT Project 3",
-      specialization: "Data Science",
-      yearPublished: 2023,
-      authors: "Author 3",
-      keywords: "Python, Machine Learning",
-    },
-    {
-      ipRegistrationNumber: "2023-IT-0004",
-      title: "IT Project 4",
-      specialization: "Cybersecurity",
-      yearPublished: 2021,
-      authors: "Author 4",
-      keywords: "Ethical Hacking, Network Security",
-    },
-    {
-      ipRegistrationNumber: "2023-IT-0005",
-      title: "IT Project 5",
-      specialization: "Cloud Computing",
-      yearPublished: 2023,
-      authors: "Author 5",
-      keywords: "AWS, Azure",
-    },
-  ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
@@ -69,9 +25,11 @@ const AdminViewITipr = () => {
     setShowModal(true);
   };
 
-  const handleViewFullDoc = (doc) => {
-    router.visit("/admin/full-document", { state: { fullDocument: doc } });
+  const handleViewFullDoc = (id) => {
+    router.visit(`/admin/full-document/${id}`);
   };
+  
+  
 
   const handleViewApproval = (doc) => {
     router.visit("/admin/approval-form", { state: { approvalFrom: doc } });
@@ -154,9 +112,9 @@ const AdminViewITipr = () => {
                 </tr>
               </thead>
               <tbody>
-                {ITcapstoneProjects.map((project, index) => (
-                  <tr key={index}>
-                    <td>{project.ipRegistrationNumber}</td>
+                {itCapstoneProjects.map((project, index) => (
+                  <tr key={project.id}>
+                    <td>{project.ipRegistration}</td>
                     <td>{project.title}</td>
                     <td>{project.specialization}</td>
                     <td>{project.yearPublished}</td>
@@ -168,7 +126,7 @@ const AdminViewITipr = () => {
                       </button>
                       <button
                         className="view-button"
-                        onClick={() => handleEdit(index + 1)}
+                        onClick={() => handleEdit(project.id)}
                       >
                         Edit
                       </button>
@@ -181,13 +139,9 @@ const AdminViewITipr = () => {
                         View ACM
                       </button>
                       <button
-                        className="view-button"
-                        onClick={() =>
-                          handleViewFullDoc(
-                            `Full Document for ${project.title}`
-                          )
-                        }
-                      >
+  className="view-button"
+  onClick={() => handleViewFullDoc(project.id)}
+>
                         View Full Document
                       </button>
                       <button

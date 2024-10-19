@@ -4,20 +4,16 @@ import AdminSidebar from "./AdminSidebar";
 import Header from "../General/Header";
 import Footer from "../General/Footer";
 import AdminModal from "./AdminModal"; 
-import { router } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react'; 
+
 const AdminViewCSipr = () => {
+  const { csThesisPapers } = usePage().props; 
   const [searchQuery, setSearchQuery] = useState("");
   const [filterYear, setFilterYear] = useState("all");
   const [showModal, setShowModal] = useState(false); 
   const [acmDocument, setAcmDocument] = useState(null); 
   const [filterPopup, setFilterPopup] = useState(false); // State for showing filter modal
   const [yearRange, setYearRange] = useState([2011, 2024]); // State for year range
-
-  // Mock data for the table
-  const CSthesisPapers = [
-    { id: 1, ipRegNo: "2023-CS-0001", title: "Thesis 1", specialization: "AI", yearPublished: 2023, authors: ["Author 1", "Author 2"], keywords: ["AI", "Learning"] },
-    { id: 2, ipRegNo: "2023-CS-0002", title: "Thesis 2", specialization: "Networking", yearPublished: 2022, authors: ["Author 3", "Author 4"], keywords: ["Networking", "Security"] },
-  ];
 
   const handleSearchChange = (e) => setSearchQuery(e.target.value);
   const handleYearFilterChange = (e) => setFilterYear(e.target.value);
@@ -55,12 +51,10 @@ const AdminViewCSipr = () => {
 
     // Adjusting minimum or maximum based on which handle is being moved
     if (handle === "min") {
-      // Prevent moving min beyond max
       if (newValue < yearRange[1]) {
         setYearRange([newValue, yearRange[1]]);
       }
     } else {
-      // Prevent moving max below min
       if (newValue > yearRange[0]) {
         setYearRange([yearRange[0], newValue]);
       }
@@ -127,17 +121,17 @@ const AdminViewCSipr = () => {
 
             {/* Projects Cards */}
             <div className="project-cards">
-              {CSthesisPapers.map((project) => (
-                <div className="project-card" key={project.id}>
+              {csThesisPapers.map((project) => ( 
+                <div className="project-card" key={project.id}> 
                   <div className="project-header">
-                    <h2>{project.title}</h2>
+                    <h2>{project.title}</h2>  
                     <span className="status-label">In Progress</span>
                   </div>
-                  <p><strong>IP Registration Number:</strong> {project.ipRegNo}</p>
-                  <p><strong>Specialization:</strong> {project.specialization}</p>
-                  <p><strong>Year Published:</strong> {project.yearPublished}</p>
-                  <p><strong>Authors:</strong> {project.authors.join(", ")}</p>
-                  <p><strong>Keywords:</strong> {project.keywords.join(", ")}</p>
+                  <p><strong>IP Registration Number:</strong> {project.ipRegNo}</p>  
+                  <p><strong>Specialization:</strong> {project.specialization}</p>  
+                  <p><strong>Year Published:</strong> {project.yearPublished}</p>  
+                  <p><strong>Authors:</strong> {project.authors}</p>  
+                  <p><strong>Keywords:</strong> {project.keywords}</p>  
 
                   <div className="project-actions">
                     <button className="action-button">Add to Best CS Thesis list</button>

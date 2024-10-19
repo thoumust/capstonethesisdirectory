@@ -9,7 +9,7 @@ const AdminEditCSThesis = () => {
   const [formData, setFormData] = useState({
     ipRegistration: '',
     specialization: '',
-    thesisTitle: '',
+    title: '',
     author1: '',
     author2: '',
     author3: '',
@@ -76,8 +76,8 @@ const AdminEditCSThesis = () => {
                 <label>Thesis Title:</label>
                 <input
                   type="text"
-                  name="thesisTitle"
-                  value={formData.thesisTitle}
+                  name="title"
+                  value={formData.title}
                   onChange={handleInputChange}
                 />
               </div>

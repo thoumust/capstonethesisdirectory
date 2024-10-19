@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProjectController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
     #Admin Routing
@@ -16,17 +18,12 @@ use Inertia\Inertia;
         return Inertia::render('AdminView/AdminHome');
     })->name('admin-home');
     
-    Route::get('/admin/ip-registered/IT-cap', function () {
-        return Inertia::render('AdminView/AdminViewITipr');
-    })->name('admin/ip-registered/IT-cap');
+    Route::get('/admin/ip-registered/IT-cap', [ProjectController::class, 'viewITCapstones'])->name('admin/ip-registered/IT-cap');
     
-    Route::get('/admin/ip-registered/IS-cap', function () {
-        return Inertia::render('AdminView/AdminViewISipr');
-    })->name('admin/ip-registered/IS-cap');
-    
-    Route::get('/admin/ip-registered/CS-thes', function () {
-        return Inertia::render('AdminView/AdminViewCSipr');
-    })->name('admin/ip-registered/CS-thes');
+    Route::get('/admin/ip-registered/IS-cap', [ProjectController::class, 'viewISCapstones'])->name('admin/ip-registered/IS-cap');
+
+    Route::get('/admin/ip-registered/CS-thes', [ProjectController::class, 'viewCSThesis'])->name('admin/ip-registered/IS-cap');
+
     
     Route::get('/admin/edit-IS-Cap/{projectId}', function ($projectId) {
         return Inertia::render('AdminView/AdminEditISCap', ['projectId' => $projectId]);
@@ -45,19 +42,21 @@ use Inertia\Inertia;
     })->name('admin-profile');
 
         // Admin Add Proj Stuff
-    Route::get('/admin/add-IT-Cap', function () {
-        return Inertia::render('AdminView/AdminAddITCap');
-    })->name('admin/add-IT-Cap');
-    
-    Route::get('/admin/add-IS-Cap', function () {
-        return Inertia::render('AdminView/AdminAddISCap');
-    })->name('admin/add-IS-Cap');
-    
-    Route::get('/admin/add-CS-Thes', function () {
-        return Inertia::render('AdminView/AdminAddCSThes');
-    })->name('admin/add-CS-Thes');
+    // Route::get('/admin/add-IT-Cap', function () {
+    //     return Inertia::render('AdminView/AdminAddITCap');
+    // })->name('admin/add-IT-Cap');
 
-    
+    Route::get('/admin/add-IT-Cap', [ProjectController::class, 'createIT'])->name('admin/add-IT-Cap');
+    Route::get('/admin/add-IS-Cap', [ProjectController::class, 'createIS'])->name('admin/add-IS-Cap');
+    Route::get('/admin/add-CS-Thes', [ProjectController::class, 'createCS'])->name('admin/add-CS-Thes');
+
+    Route::post('/admin/add-IT-Cap', [ProjectController::class, 'store'])->name('admin/add-IT-Cap-store');
+    Route::post('/admin/add-IS-Cap', [ProjectController::class, 'store'])->name('admin/add-IS-Cap-store');
+    Route::post('/admin/add-CS-Thes', [ProjectController::class, 'store'])->name('admin/add-CS-Thes-store');
+
+
+
+
     
     Route::get('/admin/approval-IT', function () {
         return Inertia::render('AdminView/AdminITApproval');
@@ -71,9 +70,10 @@ use Inertia\Inertia;
         return Inertia::render('AdminView/AdminCSApproval');
     })->name('admin/approval-CS');
     
-    Route::get('/admin/full-document', function () {
-        return Inertia::render('AdminView/AdminFullDocu');
-    })->name('admin/full-document');
+    Route::get('admin/full-document/{id}', [ProjectController::class, 'showFullDocument'])->name('admin/full-document');
+
+
+
     
     Route::get('/admin/approval-form', function () {
         return Inertia::render('AdminView/AdminApprovalForm');

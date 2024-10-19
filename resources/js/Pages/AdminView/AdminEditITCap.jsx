@@ -12,7 +12,7 @@ const AdminEditITCap = () => {
   const [formData, setFormData] = useState({
     ipRegistration: '',
     specialization: '',
-    capstoneTitle: '',
+    title: '',
     author1: '',
     author2: '',
     author3: '',
@@ -83,8 +83,8 @@ const AdminEditITCap = () => {
                 <label>Capstone Title:</label>
                 <input
                   type="text"
-                  name="capstoneTitle"
-                  value={formData.capstoneTitle}
+                  name="title"
+                  value={formData.title}
                   onChange={handleInputChange}
                 />
               </div>

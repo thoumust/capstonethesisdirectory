@@ -1,12 +1,11 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
+import { usePage } from '@inertiajs/react'; // Use Inertia's usePage to get props
 
 const AdminFullDocu = () => {
-  const location = useLocation();
-  const { fullDocument } = location.state || {}; // Fetch the full document passed from the previous page
+  const { fullDocument } = usePage().props; // Get fullDocument from Inertia props
 
   return (
     <div className="admin-home">
