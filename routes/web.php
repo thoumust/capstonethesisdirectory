@@ -10,39 +10,12 @@ use Inertia\Inertia;
     #Admin Routing
     Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/admin-login', function () {
-        return Inertia::render('AdminView/AdminLogin');
-    })->name('admin-login');
-    
-    Route::get('/admin-home', function () {
-        return Inertia::render('AdminView/AdminHome');
-    })->name('admin-home');
-    
+    // Admin View IP Reg
     Route::get('/admin/ip-registered/IT-cap', [ProjectController::class, 'viewITCapstones'])->name('admin/ip-registered/IT-cap');
-    
     Route::get('/admin/ip-registered/IS-cap', [ProjectController::class, 'viewISCapstones'])->name('admin/ip-registered/IS-cap');
-
     Route::get('/admin/ip-registered/CS-thes', [ProjectController::class, 'viewCSThesis'])->name('admin/ip-registered/CS-thes');
 
-    
-    Route::get('/admin/edit-IT-Cap/{id}', [ProjectController::class, 'editIT'])->name('admin/edit-IT-Cap');
-    Route::get('/admin/edit-IS-Cap/{id}', [ProjectController::class, 'editIS'])->name('admin/edit-IS-Cap');
-    Route::get('/admin/edit-CS-Thes/{id}', [ProjectController::class, 'editCS'])->name('admin/edit-CS-Cap');
-
-    Route::put('/admin/edit-IT-Cap/{id}', [ProjectController::class, 'update'])->name('admin/update-IT-Cap');
-    Route::put('/admin/edit-IS-Cap/{id}', [ProjectController::class, 'update'])->name('admin/update-IS-Cap');
-    Route::put('/admin/edit-CS-Thes/{id}', [ProjectController::class, 'update'])->name('admin/update-CS-Cap');
-
-
-    Route::get('/admin-profile', function () {
-        return Inertia::render('AdminView/AdminProfile');
-    })->name('admin-profile');
-
-        // Admin Add Proj Stuff
-    // Route::get('/admin/add-IT-Cap', function () {
-    //     return Inertia::render('AdminView/AdminAddITCap');
-    // })->name('admin/add-IT-Cap');
-
+    // Admin Add Proj Stuff
     Route::get('/admin/add-IT-Cap', [ProjectController::class, 'createIT'])->name('admin/add-IT-Cap');
     Route::get('/admin/add-IS-Cap', [ProjectController::class, 'createIS'])->name('admin/add-IS-Cap');
     Route::get('/admin/add-CS-Thes', [ProjectController::class, 'createCS'])->name('admin/add-CS-Thes');
@@ -51,8 +24,14 @@ use Inertia\Inertia;
     Route::post('/admin/add-IS-Cap', [ProjectController::class, 'store'])->name('admin/add-IS-Cap-store');
     Route::post('/admin/add-CS-Thes', [ProjectController::class, 'store'])->name('admin/add-CS-Thes-store');
 
+    // Admin Edit Proj
+    Route::get('/admin/edit-IT-Cap/{id}', [ProjectController::class, 'editIT'])->name('admin/edit-IT-Cap');
+    Route::get('/admin/edit-IS-Cap/{id}', [ProjectController::class, 'editIS'])->name('admin/edit-IS-Cap');
+    Route::get('/admin/edit-CS-Thes/{id}', [ProjectController::class, 'editCS'])->name('admin/edit-CS-Cap');
 
-
+    Route::put('/admin/edit-IT-Cap/{id}', [ProjectController::class, 'update'])->name('admin/update-IT-Cap');
+    Route::put('/admin/edit-IS-Cap/{id}', [ProjectController::class, 'update'])->name('admin/update-IS-Cap');
+    Route::put('/admin/edit-CS-Thes/{id}', [ProjectController::class, 'update'])->name('admin/update-CS-Thes');
 
     
     Route::get('/admin/approval-IT', function () {
@@ -68,8 +47,6 @@ use Inertia\Inertia;
     })->name('admin/approval-CS');
     
     Route::get('admin/full-document/{id}', [ProjectController::class, 'showFullDocument'])->name('admin/full-document');
-
-
 
     
     Route::get('/admin/approval-form', function () {
@@ -93,6 +70,7 @@ use Inertia\Inertia;
     })->name('admin/roles');
     });
     
+
     #Faculty Routing
     Route::middleware(['auth', 'role:faculty'])->group(function () {
     Route::get('/faculty-home', function () {
@@ -195,4 +173,4 @@ Route::middleware('auth')->group(function(){
     });
 });
 
-
+#Temporary Routes cos scuffed

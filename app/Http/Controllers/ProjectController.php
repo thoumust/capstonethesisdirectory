@@ -156,9 +156,19 @@ class ProjectController extends Controller
         // Save the updated project
         $project->save();
     
-        // Redirect back to the capstone list
-        return redirect()->route('admin/ip-registered/IT-cap')->with('success', 'Capstone project updated successfully!');
+        // Redirect to respective view pages based on the course
+        if ($project->course === 'IT') {
+            return redirect()->route('admin/ip-registered/IT-cap')->with('success', 'Capstone project updated successfully!');
+        } elseif ($project->course === 'CS') {
+            return redirect()->route('admin/ip-registered/CS-thes')->with('success', 'Capstone project updated successfully!');
+        } elseif ($project->course === 'IS') {
+            return redirect()->route('admin/ip-registered/IS-cap')->with('success', 'Capstone project updated successfully!');
+        }
+    
+        // Fallback redirection (optional)
+        return redirect()->back()->with('success', 'Capstone project updated successfully!');
     }
+    
     
 
 

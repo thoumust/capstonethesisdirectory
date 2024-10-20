@@ -40,7 +40,7 @@ const AdminEditCSThesis = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    put(route('admin/update-CS-Thesis', project.id), {
+    put(route('admin/update-CS-Thes', project.id), {
       onSuccess: () => router.visit('/admin/ip-registered/CS-thes'),
     });
   };
