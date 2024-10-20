@@ -113,7 +113,7 @@ const AdminViewISipr = () => {
               <tbody>
                 {isCapstoneProjects.map((project, index) => (
                   <tr key={project.id}>
-                    <td>{project.ipRegistrationNumber}</td>
+                    <td>{project.ipRegistration}</td>
                     <td>{project.title}</td>
                     <td>{project.specialization}</td>
                     <td>{project.yearPublished}</td>

@@ -127,7 +127,7 @@ const AdminViewCSipr = () => {
                     <h2>{project.title}</h2>  
                     <span className="status-label">In Progress</span>
                   </div>
-                  <p><strong>IP Registration Number:</strong> {project.ipRegNo}</p>  
+                  <p><strong>IP Registration Number:</strong> {project.ipRegistration}</p>  
                   <p><strong>Specialization:</strong> {project.specialization}</p>  
                   <p><strong>Year Published:</strong> {project.yearPublished}</p>  
                   <p><strong>Authors:</strong> {project.authors}</p>  

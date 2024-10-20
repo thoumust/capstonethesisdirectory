@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './AdminIPreg.css';
+import '../../../css/AdminView//AdminIPreg.css';
 import AdminSidebar from './AdminSidebar';
 import Header from '../General/Header';
 import Footer from '../General/Footer';
-import { useNavigate } from 'react-router-dom';
+import { router, usePage } from '@inertiajs/react'; 
 
 const AdminEditITCap = () => {
-  const navigate = useNavigate();
+
 
   // State to hold form data
   const [formData, setFormData] = useState({
@@ -43,11 +43,11 @@ const AdminEditITCap = () => {
     // Logic to handle form submission
     // You can send the formData to your backend or handle it as needed
     alert('IT Capstone Project saved successfully!');
-    navigate("/admin/view-IT-Cap"); // Navigate back to the list after save
+    post(route("/admin/view-IT-Cap")); // Navigate back to the list after save
   };
 
   const handleCancel = () => {
-    navigate("/admin/view-IT-Cap");
+    router.visit("/admin/view-IT-Cap");
   };
 
   return (
