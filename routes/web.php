@@ -22,21 +22,18 @@ use Inertia\Inertia;
     
     Route::get('/admin/ip-registered/IS-cap', [ProjectController::class, 'viewISCapstones'])->name('admin/ip-registered/IS-cap');
 
-    Route::get('/admin/ip-registered/CS-thes', [ProjectController::class, 'viewCSThesis'])->name('admin/ip-registered/IS-cap');
+    Route::get('/admin/ip-registered/CS-thes', [ProjectController::class, 'viewCSThesis'])->name('admin/ip-registered/CS-thes');
 
     
-    Route::get('/admin/edit-IS-Cap/{projectId}', function ($projectId) {
-        return Inertia::render('AdminView/AdminEditISCap', ['projectId' => $projectId]);
-    })->name('admin/edit-IS-Cap');
-    
-    Route::get('/admin/edit-cs-thesis/{id}', function ($id) {
-        return Inertia::render('AdminView/AdminEditCSThesis', ['id' => $id]);
-    })->name('admin/edit-cs-thesis');
-    
-    Route::get('/admin/edit-IT-Cap/{projectId}', function ($projectId) {
-        return Inertia::render('AdminView/AdminEditITCap', ['projectId' => $projectId]);
-    })->name('admin/edit-IT-Cap');
-    
+    Route::get('/admin/edit-IT-Cap/{id}', [ProjectController::class, 'editIT'])->name('admin/edit-IT-Cap');
+    Route::get('/admin/edit-IS-Cap/{id}', [ProjectController::class, 'editIS'])->name('admin/edit-IS-Cap');
+    Route::get('/admin/edit-CS-Thes/{id}', [ProjectController::class, 'editCS'])->name('admin/edit-CS-Cap');
+
+    Route::put('/admin/edit-IT-Cap/{id}', [ProjectController::class, 'update'])->name('admin/update-IT-Cap');
+    Route::put('/admin/edit-IS-Cap/{id}', [ProjectController::class, 'update'])->name('admin/update-IS-Cap');
+    Route::put('/admin/edit-CS-Thes/{id}', [ProjectController::class, 'update'])->name('admin/update-CS-Cap');
+
+
     Route::get('/admin-profile', function () {
         return Inertia::render('AdminView/AdminProfile');
     })->name('admin-profile');

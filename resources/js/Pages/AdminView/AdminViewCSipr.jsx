@@ -23,7 +23,7 @@ const AdminViewCSipr = () => {
   };
 
   const handleEdit = (projectId) => {
-    router.visit(`/admin/edit-cs-thesis/${projectId}`);
+    router.visit(`/admin/edit-CS-Thes/${projectId}`);
   };
 
   const handleViewAcm = (doc) => {
