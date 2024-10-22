@@ -117,7 +117,7 @@ const AdminViewISipr = () => {
                     <td>{project.title}</td>
                     <td>{project.specialization}</td>
                     <td>{project.yearPublished}</td>
-                    <td>{project.authors}</td>
+                    <td>{project.author1}, {project.author2}, {project.author3}, {project.author4}</td>
                     <td>{project.keywords}</td>
                     <td>
                       <button className="view-button">

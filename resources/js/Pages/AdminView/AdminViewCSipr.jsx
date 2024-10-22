@@ -130,7 +130,7 @@ const AdminViewCSipr = () => {
                   <p><strong>IP Registration Number:</strong> {project.ipRegistration}</p>  
                   <p><strong>Specialization:</strong> {project.specialization}</p>  
                   <p><strong>Year Published:</strong> {project.yearPublished}</p>  
-                  <p><strong>Authors:</strong> {project.authors}</p>  
+                  <p><strong>Authors:</strong> {project.author1}, {project.author2}, {project.author3}, {project.author4}</p>
                   <p><strong>Keywords:</strong> {project.keywords}</p>  
 
                   <div className="project-actions">

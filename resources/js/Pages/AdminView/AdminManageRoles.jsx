@@ -50,7 +50,6 @@ const AdminManageRoles = () => {
                     <td>
                       <select>
                         <option value="faculty">Faculty</option>
-                        <option value="admin">Admin</option>
                         <option value="capstone">Capstone Coordinator</option>
                       </select>
                     </td>

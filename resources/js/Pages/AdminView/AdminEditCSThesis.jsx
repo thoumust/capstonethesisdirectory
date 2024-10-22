@@ -83,8 +83,22 @@ const AdminEditCSThesis = () => {
                 <input type="text" name="author1" value={data.author1} onChange={handleChange} />
                 {errors.author1 && <div>{errors.author1}</div>}
               </div>
-              {/* Other authors go here */}
-
+              <div className="form-group">
+                <label>Author 2:</label>
+                <input type="text" name="author2" value={data.author2} onChange={handleChange} />
+                {errors.author2 && <div>{errors.author2}</div>}
+              </div>
+              <div className="form-group">
+                <label>Author 3:</label>
+                <input type="text" name="author3" value={data.author3} onChange={handleChange} />
+                {errors.author3 && <div>{errors.author3}</div>}
+              </div>
+              <div className="form-group">
+                <label>Author 4:</label>
+                <input type="text" name="author4" value={data.author4} onChange={handleChange} />
+                {errors.author4 && <div>{errors.author4}</div>}
+              </div>
+              
               {/* Technical Adviser */}
               <div className="form-group">
                 <label>Technical Adviser:</label>

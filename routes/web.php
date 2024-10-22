@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
     #Admin Routing
     Route::middleware(['auth', 'role:admin'])->group(function () {
+        
+        Route::get('/admin-home', function () {
+            return Inertia::render('AdminView/AdminHome');
+        })->name('admin-home');
 
     // Admin View IP Reg
     Route::get('/admin/ip-registered/IT-cap', [ProjectController::class, 'viewITCapstones'])->name('admin/ip-registered/IT-cap');
