@@ -5,7 +5,9 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/images/logo.svg';
+
+
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -28,7 +30,7 @@ export default function Login({ status, canResetPassword }) {
 
             <div className="bg-[#A4231C] p-8 rounded-lg shadow-md max-w-md mx-auto">
                 <div className="text-center text-white mb-6">
-                <img src={logo} alt="College Logo" className="w-24 mx-auto mb-4" />
+                <img src={logo} alt="Logo" className="w-24 mx-auto mb-4" />
                     <h1 className="text-2xl font-bold">College of Information and Computing Sciences</h1>
                     <p>Capstone Project and Thesis Papers Directory</p>
                 </div>
@@ -90,16 +92,17 @@ export default function Login({ status, canResetPassword }) {
                             </Link>
                         )}
 
-                        <PrimaryButton className="ms-4 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900" disabled={processing}>
-                            Log in
-                        </PrimaryButton>
+                        <Link href={route('register')} className="underline text-sm text-white hover:text-gray-300">
+                            Don’t have an account yet?
+                        </Link>
+
                     </div>
                 </form>
 
                 <div className="text-center mt-4 text-white">
-                    <Link href={route('register')} className="underline text-white hover:text-gray-300">
-                        Don’t have an account yet?
-                    </Link>
+                        <PrimaryButton className="ms-4 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900" disabled={processing}>
+                            Log in
+                        </PrimaryButton>
                 </div>
             </div>
         </GuestLayout>
