@@ -23,8 +23,8 @@ const FacultyHome = () => {
           <h1>Homepage</h1>
 
           {/* First row of info boxes */}
-          <div className="info-section">
-            <div className="info-box">
+          <div className="info-section mb-[20rem]">
+            <div className="info-box mb-[20rem]">
               <h2>
                 <b>About UST</b>
               </h2>
