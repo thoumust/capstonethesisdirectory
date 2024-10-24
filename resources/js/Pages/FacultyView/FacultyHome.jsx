@@ -20,11 +20,11 @@ const FacultyHome = () => {
       <div className="content-container">
         <FacultySidebar />
         <main className="main-content">
-          <h1>Homepage</h1>
+          <h1 className="text-white font-bold ml-8">Homepage</h1>
 
           {/* First row of info boxes */}
-          <div className="info-section mb-[20rem]">
-            <div className="info-box mb-[20rem]">
+          <div className="info-section">
+            <div className="info-box">
               <h2>
                 <b>About UST</b>
               </h2>
