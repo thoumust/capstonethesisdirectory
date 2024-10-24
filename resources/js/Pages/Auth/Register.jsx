@@ -5,6 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import React, { useState, useEffect } from 'react';
+import logo from '@/assets/logo.svg';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -60,172 +61,182 @@ export default function Register() {
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
-                {/* New Forms */}
-                <div>
-                    <InputLabel htmlFor="first_name" value="First Name" />
-
-                    <TextInput
-                        id="first_name"
-                        name="first_name"
-                        value={data.first_name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData('first_name', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.first_name} className="mt-2" />
-                </div>
-
-                <div>
-                    <InputLabel htmlFor="last_name" value="Last Name" /> 
-
-                    <TextInput
-                        id="last_name"  
-                        name="last_name"    
-                        value={data.last_name}  
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData('last_name', e.target.value)}
-                        required
-                    />
-
-                    <InputError message={errors.last_name} className="mt-2" />
-                </div>
-
-                
-                                {/* Email input field */}
-                                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={email}
-                        className="mt-1 block w-full"
-                        onChange={handleEmailChange}
-                        onBlur={handleBlur}  // Update global state when the user leaves the field
-                        required
-                    />
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-
-                {/* Conditionally disable studentNumber input */}
-                <div className="mt-4">
-                    <InputLabel htmlFor="studentNumber" value="Student Number" />
-                    <TextInput
-    id="studentNumber"
-    type="text"
-    name="studentNumber"
-    value={data.studentNumber}
-    className="mt-1 block w-full"
-    onChange={e => setData('studentNumber', e.target.value)}
-    disabled={!isCICS}  // Only disable if not CICS
-    required={isCICS}
-/>
-
-                    <InputError message={errors.studentNumber} className="mt-2" />
-                </div>
-
-
- {/* Radio buttons for user_course */}
- <div className="mt-4">
-                    <InputLabel value="Select Your Course" />
-
+            <div className="flex items-center justify-center mb-24 rounded-lg h-auto bg-[#A4231C] p-8">
+                <div className="bg-[#A4231C] p-1 rounded-lg w-full sm:w-auto">
+                    <div className="text-center text-white mb-6">
+                        <img src={logo} alt="Logo" className="w-20 mx-auto mb-4" />
+                        <h1 className="text-2xl font-bold">College of Information and Computing Sciences</h1>
+                        <p>Capstone Project and Thesis Papers Directory</p>
+                        <p className='m-x-auto text-xl font-bold'>Sign up</p>
+                    </div>
+                <form onSubmit={submit}>
+                    {/* New Forms */}
                     <div>
-                        <label className="mr-4">
-                            <input
-                                type="radio"
-                                name="user_course"
-                                value="CS"
-                                checked={data.user_course === 'CS'}
-                                onChange={(e) => setData('user_course', e.target.value)}
-                                required
-                            />
-                            Computer Science
-                        </label>
+                        <InputLabel htmlFor="first_name" value="First Name" />
 
-                        <label className="mr-4">
-                            <input
-                                type="radio"
-                                name="user_course"
-                                value="IT"
-                                checked={data.user_course === 'IT'}
-                                onChange={(e) => setData('user_course', e.target.value)}
-                                required
-                            />
-                            Information Technology
-                        </label>
+                        <TextInput
+                            id="first_name"
+                            name="first_name"
+                            value={data.first_name}
+                            className="mt-1 block w-full"
+                            autoComplete="name"
+                            isFocused={true}
+                            onChange={(e) => setData('first_name', e.target.value)}
+                            required
+                        />
 
-                        <label className="mr-4">
-                            <input
-                                type="radio"
-                                name="user_course"
-                                value="IS"
-                                checked={data.user_course === 'IS'}
-                                onChange={(e) => setData('user_course', e.target.value)}
-                                required
-                            />
-                            Information Systems
-                        </label>
+                        <InputError message={errors.first_name} className="mt-2" />
                     </div>
 
-                    <InputError message={errors.user_course} className="mt-2" />
-                </div>
+                    <div>
+                        <InputLabel htmlFor="last_name" value="Last Name" /> 
+
+                        <TextInput
+                            id="last_name"  
+                            name="last_name"    
+                            value={data.last_name}  
+                            className="mt-1 block w-full"
+                            autoComplete="name"
+                            isFocused={true}
+                            onChange={(e) => setData('last_name', e.target.value)}
+                            required
+                        />
+
+                        <InputError message={errors.last_name} className="mt-2" />
+                    </div>
+
+                    
+                                    {/* Email input field */}
+                                    <div className="mt-4">
+                        <InputLabel htmlFor="email" value="Email" />
+                        <TextInput
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={email}
+                            className="mt-1 block w-full"
+                            onChange={handleEmailChange}
+                            onBlur={handleBlur}  // Update global state when the user leaves the field
+                            required
+                        />
+                        <InputError message={errors.email} className="mt-2" />
+                    </div>
+
+
+                    {/* Conditionally disable studentNumber input */}
+                    <div className="mt-4">
+                        <InputLabel htmlFor="studentNumber" value="Student Number" />
+                        <TextInput
+        id="studentNumber"
+        type="text"
+        name="studentNumber"
+        value={data.studentNumber}
+        className="mt-1 block w-full"
+        onChange={e => setData('studentNumber', e.target.value)}
+        disabled={!isCICS}  // Only disable if not CICS
+        required={isCICS}
+    />
+
+                        <InputError message={errors.studentNumber} className="mt-2" />
+                    </div>
+
+
+    {/* Radio buttons for user_course */}
+    <div className="mt-4">
+                        <InputLabel value="Select Your Course" />
+
+                        <div>
+                            <label className="mr-4">
+                                <input
+                                    type="radio"
+                                    name="user_course"
+                                    value="CS"
+                                    checked={data.user_course === 'CS'}
+                                    onChange={(e) => setData('user_course', e.target.value)}
+                                    required
+                                />
+                                Computer Science
+                            </label>
+
+                            <label className="mr-4">
+                                <input
+                                    type="radio"
+                                    name="user_course"
+                                    value="IT"
+                                    checked={data.user_course === 'IT'}
+                                    onChange={(e) => setData('user_course', e.target.value)}
+                                    required
+                                />
+                                Information Technology
+                            </label>
+
+                            <label className="mr-4">
+                                <input
+                                    type="radio"
+                                    name="user_course"
+                                    value="IS"
+                                    checked={data.user_course === 'IS'}
+                                    onChange={(e) => setData('user_course', e.target.value)}
+                                    required
+                                />
+                                Information Systems
+                            </label>
+                        </div>
+
+                        <InputError message={errors.user_course} className="mt-2" />
+                    </div>
 
 
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <div className="mt-4">
+                        <InputLabel htmlFor="password" value="Password" />
 
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                        required
-                    />
+                        <TextInput
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="mt-1 block w-full"
+                            autoComplete="new-password"
+                            onChange={(e) => setData('password', e.target.value)}
+                            required
+                        />
 
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
+                        <InputError message={errors.password} className="mt-2" />
+                    </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+                    <div className="mt-4">
+                        <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
 
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password_confirmation', e.target.value)}
-                        required
-                    />
+                        <TextInput
+                            id="password_confirmation"
+                            type="password"
+                            name="password_confirmation"
+                            value={data.password_confirmation}
+                            className="mt-1 block w-full"
+                            autoComplete="new-password"
+                            onChange={(e) => setData('password_confirmation', e.target.value)}
+                            required
+                        />
 
-                    <InputError message={errors.password_confirmation} className="mt-2" />
-                </div>
+                        <InputError message={errors.password_confirmation} className="mt-2" />
+                    </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route('login')}
-                        className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                    >
-                        Already registered?
-                    </Link>
+                    <div className="flex items-center justify-end mt-4">
+                        <Link
+                            href={route('login')}
+                            className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                        >
+                            Already registered?
+                        </Link>
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
-            </form>
+                        <PrimaryButton className="ms-4" disabled={processing}>
+                            Register
+                        </PrimaryButton>
+                    </div>
+                </form>
+            </div>
+        </div>
         </GuestLayout>
     );
 }

@@ -1,6 +1,6 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link } from '@inertiajs/react';
-import bg from '../../assets/frassbg.svg';
+import bg from '@/assets/frassbg.svg';
 
 export default function Guest({ children }) {
     return (
