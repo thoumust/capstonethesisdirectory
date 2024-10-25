@@ -16,7 +16,7 @@ const FacultyBestIS = () => {
   
 
   return (
-    <div className="admin-home">
+    <div className="admin-home flex flex-col min-h-screen ml-[15rem]">
       <Header />
       <div className="content-container">
         <FacultySidebar />
